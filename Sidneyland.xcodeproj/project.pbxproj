@@ -6,6 +6,36 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */; };
+		3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */; };
+		3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610132CE9368600FA9B9B /* EnumsAPI.swift */; };
+		3D8BE1992CEC09E600F88A2D /* ContentViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1982CEC09E600F88A2D /* ContentViewVM.swift */; };
+		3D8BE19C2CEC0A3200F88A2D /* GestionnaireAttractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE19B2CEC0A3200F88A2D /* GestionnaireAttractions.swift */; };
+		3D8BE19F2CEC1E0600F88A2D /* IndicateurAttente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE19E2CEC1E0600F88A2D /* IndicateurAttente.swift */; };
+		3D8BE1A92CEC261C00F88A2D /* Montserrat-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D8BE1A72CEC261C00F88A2D /* Montserrat-Italic-VariableFont_wght.ttf */; };
+		3D8BE1AA2CEC261C00F88A2D /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D8BE1A82CEC261C00F88A2D /* Montserrat-VariableFont_wght.ttf */; };
+		3D8BE1AD2CEC263800F88A2D /* Polices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1AC2CEC263800F88A2D /* Polices.swift */; };
+		3D8BE1B02CEC2A4000F88A2D /* RangAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1AF2CEC2A4000F88A2D /* RangAttraction.swift */; };
+		3D8BE1B22CECCFED00F88A2D /* PatronPagePrincipale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1B12CECCFED00F88A2D /* PatronPagePrincipale.swift */; };
+		3D8BE1B42CECD2E800F88A2D /* TailleEcran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1B32CECD2E800F88A2D /* TailleEcran.swift */; };
+		3D8BE1B62CECD34100F88A2D /* PagePrincipale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1B52CECD34100F88A2D /* PagePrincipale.swift */; };
+		3D8BE1B82CECD55A00F88A2D /* DegradeHaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1B72CECD55A00F88A2D /* DegradeHaut.swift */; };
+		3D8BE1BB2CECD59E00F88A2D /* BordureArrondie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1BA2CECD59E00F88A2D /* BordureArrondie.swift */; };
+		3D8BE1BD2CECE41100F88A2D /* CartoucheGlossaire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */; };
+		3D8BE1C02CECF38600F88A2D /* TexteEnDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1BF2CECF38600F88A2D /* TexteEnDate.swift */; };
+		3D8BE1C22CEE265D00F88A2D /* SqueletteRangAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE1C12CEE265D00F88A2D /* SqueletteRangAttraction.swift */; };
+		3DB753432CE8E40300F68412 /* APIDisneyland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB753362CE8E40300F68412 /* APIDisneyland.swift */; };
+		3DB753442CE8E40300F68412 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB753372CE8E40300F68412 /* Attraction.swift */; };
+		3DB753452CE8E40300F68412 /* NomParc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB753382CE8E40300F68412 /* NomParc.swift */; };
+		3DB753462CE8E40300F68412 /* RegistreAttractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB753392CE8E40300F68412 /* RegistreAttractions.swift */; };
+		3DB753472CE8E40300F68412 /* NomUnivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7533A2CE8E40300F68412 /* NomUnivers.swift */; };
+		3DB753482CE8E40300F68412 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7533F2CE8E40300F68412 /* ContentView.swift */; };
+		3DB753492CE8E40300F68412 /* SidneylandApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB753412CE8E40300F68412 /* SidneylandApp.swift */; };
+		3DB7534A2CE8E40300F68412 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7533C2CE8E40300F68412 /* Preview Assets.xcassets */; };
+		3DB7534B2CE8E40300F68412 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7533E2CE8E40300F68412 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3D25D6CE2C965D09003B2A5F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +57,38 @@
 		3D25D6BC2C965D08003B2A5F /* Sidneyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sidneyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6CD2C965D09003B2A5F /* SidneylandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6D72C965D09003B2A5F /* SidneylandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationsAttraction.swift; sourceTree = "<group>"; };
+		3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FonctionnementAttraction.swift; sourceTree = "<group>"; };
+		3D3610132CE9368600FA9B9B /* EnumsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumsAPI.swift; sourceTree = "<group>"; };
+		3D8BE1982CEC09E600F88A2D /* ContentViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVM.swift; sourceTree = "<group>"; };
+		3D8BE19B2CEC0A3200F88A2D /* GestionnaireAttractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestionnaireAttractions.swift; sourceTree = "<group>"; };
+		3D8BE19E2CEC1E0600F88A2D /* IndicateurAttente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicateurAttente.swift; sourceTree = "<group>"; };
+		3D8BE1A72CEC261C00F88A2D /* Montserrat-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		3D8BE1A82CEC261C00F88A2D /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		3D8BE1AC2CEC263800F88A2D /* Polices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polices.swift; sourceTree = "<group>"; };
+		3D8BE1AE2CEC265F00F88A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D8BE1AF2CEC2A4000F88A2D /* RangAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangAttraction.swift; sourceTree = "<group>"; };
+		3D8BE1B12CECCFED00F88A2D /* PatronPagePrincipale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatronPagePrincipale.swift; sourceTree = "<group>"; };
+		3D8BE1B32CECD2E800F88A2D /* TailleEcran.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TailleEcran.swift; sourceTree = "<group>"; };
+		3D8BE1B52CECD34100F88A2D /* PagePrincipale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePrincipale.swift; sourceTree = "<group>"; };
+		3D8BE1B72CECD55A00F88A2D /* DegradeHaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegradeHaut.swift; sourceTree = "<group>"; };
+		3D8BE1BA2CECD59E00F88A2D /* BordureArrondie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BordureArrondie.swift; sourceTree = "<group>"; };
+		3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartoucheGlossaire.swift; sourceTree = "<group>"; };
+		3D8BE1BF2CECF38600F88A2D /* TexteEnDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TexteEnDate.swift; sourceTree = "<group>"; };
+		3D8BE1C12CEE265D00F88A2D /* SqueletteRangAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SqueletteRangAttraction.swift; sourceTree = "<group>"; };
+		3DB753362CE8E40300F68412 /* APIDisneyland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDisneyland.swift; sourceTree = "<group>"; };
+		3DB753372CE8E40300F68412 /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
+		3DB753382CE8E40300F68412 /* NomParc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomParc.swift; sourceTree = "<group>"; };
+		3DB753392CE8E40300F68412 /* RegistreAttractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistreAttractions.swift; sourceTree = "<group>"; };
+		3DB7533A2CE8E40300F68412 /* NomUnivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NomUnivers.swift; sourceTree = "<group>"; };
+		3DB7533C2CE8E40300F68412 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3DB7533E2CE8E40300F68412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DB7533F2CE8E40300F68412 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3DB753402CE8E40300F68412 /* Sidneyland.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sidneyland.entitlements; sourceTree = "<group>"; };
+		3DB753412CE8E40300F68412 /* SidneylandApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidneylandApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3D25D6BE2C965D08003B2A5F /* Sidneyland */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Sidneyland;
-			sourceTree = "<group>";
-		};
 		3D25D6D02C965D09003B2A5F /* SidneylandTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SidneylandTests;
@@ -75,7 +129,7 @@
 		3D25D6B32C965D08003B2A5F = {
 			isa = PBXGroup;
 			children = (
-				3D25D6BE2C965D08003B2A5F /* Sidneyland */,
+				3DB753422CE8E40300F68412 /* Sidneyland */,
 				3D25D6D02C965D09003B2A5F /* SidneylandTests */,
 				3D25D6DA2C965D09003B2A5F /* SidneylandUITests */,
 				3D25D6BD2C965D08003B2A5F /* Products */,
@@ -92,6 +146,122 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3D3610122CE9365A00FA9B9B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3DB753362CE8E40300F68412 /* APIDisneyland.swift */,
+				3D3610132CE9368600FA9B9B /* EnumsAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3D8BE1962CEC094700F88A2D /* Vue */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7533F2CE8E40300F68412 /* ContentView.swift */,
+				3D8BE1B52CECD34100F88A2D /* PagePrincipale.swift */,
+				3D8BE19D2CEC1DF100F88A2D /* Composants */,
+			);
+			path = Vue;
+			sourceTree = "<group>";
+		};
+		3D8BE1972CEC095200F88A2D /* VueModele */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1982CEC09E600F88A2D /* ContentViewVM.swift */,
+				3D8BE1B32CECD2E800F88A2D /* TailleEcran.swift */,
+				3D8BE19B2CEC0A3200F88A2D /* GestionnaireAttractions.swift */,
+			);
+			path = VueModele;
+			sourceTree = "<group>";
+		};
+		3D8BE19D2CEC1DF100F88A2D /* Composants */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1AF2CEC2A4000F88A2D /* RangAttraction.swift */,
+				3D8BE1C12CEE265D00F88A2D /* SqueletteRangAttraction.swift */,
+				3D8BE19E2CEC1E0600F88A2D /* IndicateurAttente.swift */,
+				3D8BE1B12CECCFED00F88A2D /* PatronPagePrincipale.swift */,
+				3D8BE1B72CECD55A00F88A2D /* DegradeHaut.swift */,
+				3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */,
+			);
+			path = Composants;
+			sourceTree = "<group>";
+		};
+		3D8BE1A62CEC24F800F88A2D /* Constantes */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1AB2CEC262000F88A2D /* Polices */,
+				3D8BE1AC2CEC263800F88A2D /* Polices.swift */,
+			);
+			path = Constantes;
+			sourceTree = "<group>";
+		};
+		3D8BE1AB2CEC262000F88A2D /* Polices */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1A72CEC261C00F88A2D /* Montserrat-Italic-VariableFont_wght.ttf */,
+				3D8BE1A82CEC261C00F88A2D /* Montserrat-VariableFont_wght.ttf */,
+			);
+			path = Polices;
+			sourceTree = "<group>";
+		};
+		3D8BE1B92CECD59000F88A2D /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1BA2CECD59E00F88A2D /* BordureArrondie.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		3D8BE1BE2CECF37B00F88A2D /* Outils */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1BF2CECF38600F88A2D /* TexteEnDate.swift */,
+			);
+			path = Outils;
+			sourceTree = "<group>";
+		};
+		3DB7533B2CE8E40300F68412 /* Modele */ = {
+			isa = PBXGroup;
+			children = (
+				3D3610122CE9365A00FA9B9B /* API */,
+				3DB753372CE8E40300F68412 /* Attraction.swift */,
+				3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */,
+				3DB753392CE8E40300F68412 /* RegistreAttractions.swift */,
+				3DB7533A2CE8E40300F68412 /* NomUnivers.swift */,
+				3DB753382CE8E40300F68412 /* NomParc.swift */,
+				3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */,
+			);
+			path = Modele;
+			sourceTree = "<group>";
+		};
+		3DB7533D2CE8E40300F68412 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3DB7533C2CE8E40300F68412 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3DB753422CE8E40300F68412 /* Sidneyland */ = {
+			isa = PBXGroup;
+			children = (
+				3DB753412CE8E40300F68412 /* SidneylandApp.swift */,
+				3D8BE1962CEC094700F88A2D /* Vue */,
+				3D8BE1972CEC095200F88A2D /* VueModele */,
+				3DB7533B2CE8E40300F68412 /* Modele */,
+				3D8BE1B92CECD59000F88A2D /* Styles */,
+				3D8BE1BE2CECF37B00F88A2D /* Outils */,
+				3D8BE1A62CEC24F800F88A2D /* Constantes */,
+				3DB7533E2CE8E40300F68412 /* Assets.xcassets */,
+				3DB753402CE8E40300F68412 /* Sidneyland.entitlements */,
+				3D8BE1AE2CEC265F00F88A2D /* Info.plist */,
+				3DB7533D2CE8E40300F68412 /* Preview Content */,
+			);
+			path = Sidneyland;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +276,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				3D25D6BE2C965D08003B2A5F /* Sidneyland */,
 			);
 			name = Sidneyland;
 			packageProductDependencies = (
@@ -212,6 +379,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB7534A2CE8E40300F68412 /* Preview Assets.xcassets in Resources */,
+				3DB7534B2CE8E40300F68412 /* Assets.xcassets in Resources */,
+				3D8BE1A92CEC261C00F88A2D /* Montserrat-Italic-VariableFont_wght.ttf in Resources */,
+				3D8BE1AA2CEC261C00F88A2D /* Montserrat-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +407,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8BE19C2CEC0A3200F88A2D /* GestionnaireAttractions.swift in Sources */,
+				3D8BE1C02CECF38600F88A2D /* TexteEnDate.swift in Sources */,
+				3D8BE1B62CECD34100F88A2D /* PagePrincipale.swift in Sources */,
+				3D8BE1B02CEC2A4000F88A2D /* RangAttraction.swift in Sources */,
+				3DB753432CE8E40300F68412 /* APIDisneyland.swift in Sources */,
+				3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */,
+				3D8BE1BD2CECE41100F88A2D /* CartoucheGlossaire.swift in Sources */,
+				3D8BE1AD2CEC263800F88A2D /* Polices.swift in Sources */,
+				3DB753442CE8E40300F68412 /* Attraction.swift in Sources */,
+				3DB753452CE8E40300F68412 /* NomParc.swift in Sources */,
+				3D8BE1992CEC09E600F88A2D /* ContentViewVM.swift in Sources */,
+				3DB753462CE8E40300F68412 /* RegistreAttractions.swift in Sources */,
+				3DB753472CE8E40300F68412 /* NomUnivers.swift in Sources */,
+				3D8BE1BB2CECD59E00F88A2D /* BordureArrondie.swift in Sources */,
+				3D8BE1B42CECD2E800F88A2D /* TailleEcran.swift in Sources */,
+				3DB753482CE8E40300F68412 /* ContentView.swift in Sources */,
+				3D8BE19F2CEC1E0600F88A2D /* IndicateurAttente.swift in Sources */,
+				3D8BE1B82CECD55A00F88A2D /* DegradeHaut.swift in Sources */,
+				3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */,
+				3D8BE1B22CECCFED00F88A2D /* PatronPagePrincipale.swift in Sources */,
+				3D8BE1C22CEE265D00F88A2D /* SqueletteRangAttraction.swift in Sources */,
+				3DB753492CE8E40300F68412 /* SidneylandApp.swift in Sources */,
+				3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,12 +584,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sidneyland/Sidneyland.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sidneyland/Preview Content\"";
 				DEVELOPMENT_TEAM = BK8PRMYFUA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sidneyland/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -404,12 +599,12 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomaslebonnec.Sidneyland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,7 +613,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -429,12 +624,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sidneyland/Sidneyland.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sidneyland/Preview Content\"";
 				DEVELOPMENT_TEAM = BK8PRMYFUA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sidneyland/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -443,12 +639,12 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomaslebonnec.Sidneyland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -457,7 +653,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};

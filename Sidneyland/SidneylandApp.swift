@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct SidneylandApp: App {
+    
+    @StateObject var tailleÉcran = TailleEcran()
+    
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(tailleÉcran)
         }
     }
 }
