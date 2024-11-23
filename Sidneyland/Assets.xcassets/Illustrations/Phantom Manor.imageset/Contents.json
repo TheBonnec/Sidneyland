@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Phatom Manor.png",
+      "filename" : "Phantom Manor.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Phantom Manor nuit.jpg",
+      "filename" : "Phantom Manor Nuit.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },

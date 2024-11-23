@@ -11,6 +11,7 @@ import Foundation
 struct InformationsAttraction {
     let tempsAttente: Int
     let tempsSingleRider: Int?
+    let horaireFermeture: Date?
     let fonctionnement: FonctionnementAttraction
     let dernièreMàJ = Date()
 }

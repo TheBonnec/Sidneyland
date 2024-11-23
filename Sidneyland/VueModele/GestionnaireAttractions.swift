@@ -47,6 +47,7 @@ class GestionnaireAttractions {
         // Valeur par défaut avant assignation
         var tempsAttente = 0
         var tempsSingleRider: Int? = nil
+        var horaireFermeture: Date? = nil
         var fonctionnement: FonctionnementAttraction = .inconnu
         var attractionEstOuverte: Bool = true
         
@@ -60,9 +61,11 @@ class GestionnaireAttractions {
                     }
                 }
                 
-                let horaireOuvertue = horaires[0]["startTime"] as? String ?? ""
-                let horaireFermeture = horaires[0]["endTime"] as? String ?? ""
-                attractionEstOuverte = estDansIntervalle(date: Date(), debut: horaireOuvertue, fin: horaireFermeture)
+                let horaireOuvertueTxt = horaires[0]["startTime"] as? String ?? ""
+                let horaireFermetureTxt = horaires[0]["endTime"] as? String ?? ""
+                attractionEstOuverte = estDansIntervalle(date: Date(), debut: horaireOuvertueTxt, fin: horaireFermetureTxt)
+                
+                horaireFermeture = horaireFermetureTxt.convertirTexteEnDate()
             }
         }
         
@@ -72,7 +75,9 @@ class GestionnaireAttractions {
             }
             
             if let singleRider = état["singleRider"] as? [String: Any] {
-                tempsSingleRider = singleRider["singleRiderWaitMinutes"] as? Int
+                if let tempsSingleRiderTxt = singleRider["singleRiderWaitMinutes"] as? String {
+                    tempsSingleRider = Int(tempsSingleRiderTxt)
+                }
             }
             
             if let fonctionnementBrut = état["status"] as? String, fonctionnement != .enTravaux {
@@ -92,6 +97,7 @@ class GestionnaireAttractions {
         let informationsAttraction = InformationsAttraction(
             tempsAttente: tempsAttente,
             tempsSingleRider: tempsSingleRider,
+            horaireFermeture: horaireFermeture,
             fonctionnement: fonctionnement
         )
         
@@ -132,4 +138,15 @@ class GestionnaireAttractions {
         }
     }
     
+    
+    
+    func adaptationFormatHoraire(horaire: String) -> String {
+        let composantes = horaire.split(separator: ":")
+        guard composantes.count >= 2 else { return horaire }
+        
+        let heures = composantes[0]
+        let minutes = composantes[1]
+        
+        return "\(heures)h\(minutes)"
+    }
 }

@@ -1,18 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Flight Force.jpg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "filename" : "Flight Force Nuit.jpg",
+      "filename" : "jarketing-RrviS8-i8-U-unsplash.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -21,26 +10,6 @@
       "scale" : "2x"
     },
     {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
       "idiom" : "universal",
       "scale" : "3x"
     }

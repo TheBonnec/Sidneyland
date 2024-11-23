@@ -11,4 +11,12 @@ import Foundation
 enum NomParc: String {
     case disneyland = "Disneyland Park"
     case studio = "Walt Disney Studios"
+    
+    
+    var symbole: String {
+        switch self {
+        case .disneyland: return "Symbole Disneyland Park"
+        case .studio: return "Symbole Walt Disney Studio"
+        }
+    }
 }

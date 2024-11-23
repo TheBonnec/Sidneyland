@@ -13,7 +13,7 @@ struct DegradeHaut: View {
     
     var largeurÉcran: CGFloat
     var hauteurSafeArea: CGFloat
-    var déplacement: CGFloat
+    var défilement: CGFloat
     
     
     
@@ -28,15 +28,15 @@ struct DegradeHaut: View {
             Spacer()
         }
         .ignoresSafeArea()
-        .opacity(opacitéDégradéHaut(hauteurSafeArea: hauteurSafeArea, déplacement: déplacement))
+        .opacity(opacitéDégradéHaut(hauteurSafeArea: hauteurSafeArea, défilement: défilement))
     }
     
     
     
     // MARK: Méthodes
     
-    func opacitéDégradéHaut(hauteurSafeArea: CGFloat, déplacement: CGFloat) -> Double {
-        let déplacementDécalé = -(déplacement + 200 - hauteurSafeArea)
+    func opacitéDégradéHaut(hauteurSafeArea: CGFloat, défilement: CGFloat) -> Double {
+        let déplacementDécalé = -(défilement + 200 - hauteurSafeArea)
         let déplacementPositif = max(0, déplacementDécalé)
         let déplacementPlafonné = min(hauteurSafeArea, déplacementPositif)
         let opacité = déplacementPlafonné / 50

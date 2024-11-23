@@ -11,6 +11,7 @@ import SwiftUI
 struct SidneylandApp: App {
     
     @StateObject var tailleÉcran = TailleEcran()
+    @StateObject var appVM = AppVM()
     
     
     
@@ -18,6 +19,7 @@ struct SidneylandApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(tailleÉcran)
+                .environmentObject(appVM)
         }
     }
 }

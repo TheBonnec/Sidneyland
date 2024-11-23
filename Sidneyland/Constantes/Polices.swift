@@ -12,10 +12,16 @@ class Polices {
     static let MontserratRegular: String = "MontserratRoman-Regular"
     static let MontserratMedium: String = "MontserratRoman-Medium"
     static let MontserratSemiBold: String = "MontserratRoman-SemiBold"
+    static let MontserratBold: String = "MontserratRoman-Bold"
 }
 
 
 extension Font {
+    // Oui ok j'avais plus de nom tu vas faire quoi ?
+    static var gigaTitre: Font {
+        .custom(Polices.MontserratBold, size: 28)
+    }
+    
     static var grosTitre: Font {
         .custom(Polices.MontserratSemiBold, size: 24)
     }
