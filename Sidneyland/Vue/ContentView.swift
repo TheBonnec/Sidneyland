@@ -23,8 +23,23 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { géometrie in
             ZStack {
-                vuePagePrincipale(géometrie)
-                    .opacity(!appVM.détailEstAffiché ? 1 : 0)
+                TabView {
+                    vuePagePrincipale(géometrie)
+                        .tabItem {
+                            Label("Attractions", systemImage: "train.side.front.car")
+                        }
+                    
+                    Text("Favoris")
+                        .tabItem {
+                            Label("Favoris", systemImage: "heart.fill")
+                        }
+                    
+                    PageCarte()
+                        .tabItem {
+                            Label("Carte", systemImage: "map")
+                        }
+                }
+                .opacity(!appVM.détailEstAffiché ? 1 : 0)
                 
                 if appVM.détailEstAffiché {
                     vueDétails()

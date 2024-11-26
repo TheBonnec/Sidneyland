@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D15887B2CF28CC90071CE2F /* PageCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15887A2CF28CC90071CE2F /* PageCarte.swift */; };
+		3D1588B92CF535D10071CE2F /* PageCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1588B82CF535D10071CE2F /* PageCarte.swift */; };
 		3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */; };
 		3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */; };
 		3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610132CE9368600FA9B9B /* EnumsAPI.swift */; };
@@ -62,7 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3D15887A2CF28CC90071CE2F /* PageCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCarte.swift; sourceTree = "<group>"; };
+		3D1588B82CF535D10071CE2F /* PageCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCarte.swift; sourceTree = "<group>"; };
 		3D25D6BC2C965D08003B2A5F /* Sidneyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sidneyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6CD2C965D09003B2A5F /* SidneylandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6D72C965D09003B2A5F /* SidneylandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +145,7 @@
 		3D1588792CF28CBA0071CE2F /* PageCarte */ = {
 			isa = PBXGroup;
 			children = (
-				3D15887A2CF28CC90071CE2F /* PageCarte.swift */,
+				3D1588B82CF535D10071CE2F /* PageCarte.swift */,
 			);
 			path = PageCarte;
 			sourceTree = "<group>";
@@ -464,6 +464,7 @@
 				3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */,
 				3D8BE1BD2CECE41100F88A2D /* CartoucheGlossaire.swift in Sources */,
 				3D51019B2CF0D3EC00129A2A /* IllustrationAttraction.swift in Sources */,
+				3D1588B92CF535D10071CE2F /* PageCarte.swift in Sources */,
 				3D8BE1AD2CEC263800F88A2D /* Polices.swift in Sources */,
 				3DB753442CE8E40300F68412 /* Attraction.swift in Sources */,
 				3DB753452CE8E40300F68412 /* NomParc.swift in Sources */,
@@ -478,7 +479,6 @@
 				3D8BE1B42CECD2E800F88A2D /* TailleEcran.swift in Sources */,
 				3DEB25F52CEEAC4A00639F80 /* Flou.swift in Sources */,
 				3DB753482CE8E40300F68412 /* ContentView.swift in Sources */,
-				3D15887B2CF28CC90071CE2F /* PageCarte.swift in Sources */,
 				3D8BE19F2CEC1E0600F88A2D /* IndicateurAttente.swift in Sources */,
 				3D8BE1B82CECD55A00F88A2D /* DegradeHaut.swift in Sources */,
 				3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */,
