@@ -12,7 +12,7 @@ class GestionnaireAttractions {
     
     static func obtenirDonnéesAttractions() async throws -> [Attraction] {
         let donnéesBruts = try await APIDisneyland.obtenirDonnéesBrutsAttractions()
-        var toutesAttractions = RegistreAttractions.attractions()
+        let toutesAttractions = RegistreAttractions.attractions()
         
         for i in 0..<toutesAttractions.count {
             let attraction = toutesAttractions[i]

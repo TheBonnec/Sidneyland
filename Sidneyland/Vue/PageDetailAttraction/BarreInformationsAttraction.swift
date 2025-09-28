@@ -29,7 +29,7 @@ struct BarreInformationsAttraction: View {
         .padding()
         .frame(maxWidth: .infinity, minHeight: 79)
         .background(Color(hex: couleur ?? "#3E2500"))
-        .bordureArrondie(rayon: 12)
+        .bordureArrondie(rayon: 24)
     }
     
     

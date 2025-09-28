@@ -12,6 +12,8 @@ struct SidneylandApp: App {
     
     @StateObject var tailleÉcran = TailleEcran()
     @StateObject var appVM = AppVM()
+    @StateObject var détailAttractionVM = DetailAttractionVM()
+    @StateObject var sélectionOnglet = SelectionOnglet()
     
     
     
@@ -20,6 +22,8 @@ struct SidneylandApp: App {
             ContentView()
                 .environmentObject(tailleÉcran)
                 .environmentObject(appVM)
+                .environmentObject(détailAttractionVM)
+                .environmentObject(sélectionOnglet)
         }
     }
 }

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3D1588B92CF535D10071CE2F /* PageCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1588B82CF535D10071CE2F /* PageCarte.swift */; };
+		3D1588FF2CF8CC370071CE2F /* EnvironnementTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1588FE2CF8CC370071CE2F /* EnvironnementTransition.swift */; };
+		3D1589022CF8CCC20071CE2F /* TransitionModale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589012CF8CCC20071CE2F /* TransitionModale.swift */; };
+		3D1589042CF8CD6A0071CE2F /* TransitionInvisible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589032CF8CD6A0071CE2F /* TransitionInvisible.swift */; };
+		3D1589072CF8CE4A0071CE2F /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589062CF8CE4A0071CE2F /* Animations.swift */; };
+		3D15890A2CF8CF4F0071CE2F /* DetailAttractionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589092CF8CF4F0071CE2F /* DetailAttractionVM.swift */; };
+		3D15890C2CF911EC0071CE2F /* BoutonFavori.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15890B2CF911EC0071CE2F /* BoutonFavori.swift */; };
+		3D15890E2CF914590071CE2F /* RawRepresentableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15890D2CF914590071CE2F /* RawRepresentableString.swift */; };
+		3D1589172CF922CF0071CE2F /* SelectionOnglet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589162CF922CF0071CE2F /* SelectionOnglet.swift */; };
+		3D1589192CF929440071CE2F /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589182CF929440071CE2F /* LazyView.swift */; };
+		3D15891B2CF940790071CE2F /* TissuCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15891A2CF940790071CE2F /* TissuCarte.swift */; };
 		3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */; };
 		3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */; };
 		3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610132CE9368600FA9B9B /* EnumsAPI.swift */; };
@@ -63,6 +73,16 @@
 
 /* Begin PBXFileReference section */
 		3D1588B82CF535D10071CE2F /* PageCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCarte.swift; sourceTree = "<group>"; };
+		3D1588FE2CF8CC370071CE2F /* EnvironnementTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironnementTransition.swift; sourceTree = "<group>"; };
+		3D1589012CF8CCC20071CE2F /* TransitionModale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionModale.swift; sourceTree = "<group>"; };
+		3D1589032CF8CD6A0071CE2F /* TransitionInvisible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionInvisible.swift; sourceTree = "<group>"; };
+		3D1589062CF8CE4A0071CE2F /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		3D1589092CF8CF4F0071CE2F /* DetailAttractionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAttractionVM.swift; sourceTree = "<group>"; };
+		3D15890B2CF911EC0071CE2F /* BoutonFavori.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoutonFavori.swift; sourceTree = "<group>"; };
+		3D15890D2CF914590071CE2F /* RawRepresentableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableString.swift; sourceTree = "<group>"; };
+		3D1589162CF922CF0071CE2F /* SelectionOnglet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionOnglet.swift; sourceTree = "<group>"; };
+		3D1589182CF929440071CE2F /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		3D15891A2CF940790071CE2F /* TissuCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TissuCarte.swift; sourceTree = "<group>"; };
 		3D25D6BC2C965D08003B2A5F /* Sidneyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sidneyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6CD2C965D09003B2A5F /* SidneylandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6D72C965D09003B2A5F /* SidneylandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,8 +166,47 @@
 			isa = PBXGroup;
 			children = (
 				3D1588B82CF535D10071CE2F /* PageCarte.swift */,
+				3D15891A2CF940790071CE2F /* TissuCarte.swift */,
 			);
 			path = PageCarte;
+			sourceTree = "<group>";
+		};
+		3D1588FD2CF8CC0E0071CE2F /* ValeursEnvironnement */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BE1B32CECD2E800F88A2D /* TailleEcran.swift */,
+				3D1588FE2CF8CC370071CE2F /* EnvironnementTransition.swift */,
+			);
+			path = ValeursEnvironnement;
+			sourceTree = "<group>";
+		};
+		3D1589002CF8CCAF0071CE2F /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				3D1589012CF8CCC20071CE2F /* TransitionModale.swift */,
+				3D1589032CF8CD6A0071CE2F /* TransitionInvisible.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		3D1589052CF8CE400071CE2F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3D1589062CF8CE4A0071CE2F /* Animations.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		3D1589082CF8CEA30071CE2F /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				3DB753372CE8E40300F68412 /* Attraction.swift */,
+				3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */,
+				3DB7533A2CE8E40300F68412 /* NomUnivers.swift */,
+				3DB753382CE8E40300F68412 /* NomParc.swift */,
+				3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */,
+			);
+			path = Structures;
 			sourceTree = "<group>";
 		};
 		3D25D6B32C965D08003B2A5F = {
@@ -195,8 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				3D8BE1982CEC09E600F88A2D /* AppVM.swift */,
-				3D8BE1B32CECD2E800F88A2D /* TailleEcran.swift */,
+				3D1589092CF8CF4F0071CE2F /* DetailAttractionVM.swift */,
 				3D8BE19B2CEC0A3200F88A2D /* GestionnaireAttractions.swift */,
+				3D1589162CF922CF0071CE2F /* SelectionOnglet.swift */,
+				3D1588FD2CF8CC0E0071CE2F /* ValeursEnvironnement */,
 			);
 			path = VueModele;
 			sourceTree = "<group>";
@@ -204,8 +265,11 @@
 		3D8BE19D2CEC1DF100F88A2D /* Composants */ = {
 			isa = PBXGroup;
 			children = (
+				3D15890B2CF911EC0071CE2F /* BoutonFavori.swift */,
+				3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */,
 				3D8BE1B72CECD55A00F88A2D /* DegradeHaut.swift */,
 				3D51019A2CF0D3EC00129A2A /* IllustrationAttraction.swift */,
+				3D8BE1B12CECCFED00F88A2D /* PatronPagePrincipale.swift */,
 			);
 			path = Composants;
 			sourceTree = "<group>";
@@ -243,6 +307,8 @@
 			children = (
 				3D8BE1BF2CECF38600F88A2D /* TexteEnDate.swift */,
 				3DEB26022CEEBECA00639F80 /* DateEnTexte.swift */,
+				3D15890D2CF914590071CE2F /* RawRepresentableString.swift */,
+				3D1589182CF929440071CE2F /* LazyView.swift */,
 			);
 			path = Outils;
 			sourceTree = "<group>";
@@ -251,12 +317,10 @@
 			isa = PBXGroup;
 			children = (
 				3D3610122CE9365A00FA9B9B /* API */,
-				3DB753372CE8E40300F68412 /* Attraction.swift */,
-				3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */,
+				3D1589082CF8CEA30071CE2F /* Structures */,
+				3D1589002CF8CCAF0071CE2F /* Transitions */,
+				3D1589052CF8CE400071CE2F /* Animations */,
 				3DB753392CE8E40300F68412 /* RegistreAttractions.swift */,
-				3DB7533A2CE8E40300F68412 /* NomUnivers.swift */,
-				3DB753382CE8E40300F68412 /* NomParc.swift */,
-				3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */,
 			);
 			path = Modele;
 			sourceTree = "<group>";
@@ -293,9 +357,7 @@
 				3D8BE1B52CECD34100F88A2D /* PagePrincipale.swift */,
 				3D8BE1AF2CEC2A4000F88A2D /* RangAttraction.swift */,
 				3D8BE1C12CEE265D00F88A2D /* SqueletteRangAttraction.swift */,
-				3D8BE1B12CECCFED00F88A2D /* PatronPagePrincipale.swift */,
 				3D8BE19E2CEC1E0600F88A2D /* IndicateurAttente.swift */,
-				3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */,
 			);
 			path = PagePrincipal;
 			sourceTree = "<group>";
@@ -457,15 +519,19 @@
 			files = (
 				3D8BE19C2CEC0A3200F88A2D /* GestionnaireAttractions.swift in Sources */,
 				3DEB26052CEEBF6300639F80 /* CaseInformationAttraction.swift in Sources */,
+				3D15890A2CF8CF4F0071CE2F /* DetailAttractionVM.swift in Sources */,
+				3D1589042CF8CD6A0071CE2F /* TransitionInvisible.swift in Sources */,
 				3D8BE1C02CECF38600F88A2D /* TexteEnDate.swift in Sources */,
 				3D8BE1B62CECD34100F88A2D /* PagePrincipale.swift in Sources */,
 				3D8BE1B02CEC2A4000F88A2D /* RangAttraction.swift in Sources */,
+				3D1589072CF8CE4A0071CE2F /* Animations.swift in Sources */,
 				3DB753432CE8E40300F68412 /* APIDisneyland.swift in Sources */,
 				3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */,
 				3D8BE1BD2CECE41100F88A2D /* CartoucheGlossaire.swift in Sources */,
 				3D51019B2CF0D3EC00129A2A /* IllustrationAttraction.swift in Sources */,
 				3D1588B92CF535D10071CE2F /* PageCarte.swift in Sources */,
 				3D8BE1AD2CEC263800F88A2D /* Polices.swift in Sources */,
+				3D1588FF2CF8CC370071CE2F /* EnvironnementTransition.swift in Sources */,
 				3DB753442CE8E40300F68412 /* Attraction.swift in Sources */,
 				3DB753452CE8E40300F68412 /* NomParc.swift in Sources */,
 				3D8BE1992CEC09E600F88A2D /* AppVM.swift in Sources */,
@@ -473,16 +539,22 @@
 				3DB753462CE8E40300F68412 /* RegistreAttractions.swift in Sources */,
 				3DB753472CE8E40300F68412 /* NomUnivers.swift in Sources */,
 				3DEB25FF2CEEBB5D00639F80 /* BarreInformationsAttraction.swift in Sources */,
+				3D15891B2CF940790071CE2F /* TissuCarte.swift in Sources */,
 				3DEB25FD2CEEB5E000639F80 /* CouleurHEX.swift in Sources */,
+				3D15890C2CF911EC0071CE2F /* BoutonFavori.swift in Sources */,
 				3D8BE1BB2CECD59E00F88A2D /* BordureArrondie.swift in Sources */,
 				3DEB25F32CEE9F3700639F80 /* PageDetailAttraction.swift in Sources */,
 				3D8BE1B42CECD2E800F88A2D /* TailleEcran.swift in Sources */,
 				3DEB25F52CEEAC4A00639F80 /* Flou.swift in Sources */,
+				3D1589192CF929440071CE2F /* LazyView.swift in Sources */,
 				3DB753482CE8E40300F68412 /* ContentView.swift in Sources */,
+				3D1589022CF8CCC20071CE2F /* TransitionModale.swift in Sources */,
+				3D15890E2CF914590071CE2F /* RawRepresentableString.swift in Sources */,
 				3D8BE19F2CEC1E0600F88A2D /* IndicateurAttente.swift in Sources */,
 				3D8BE1B82CECD55A00F88A2D /* DegradeHaut.swift in Sources */,
 				3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */,
 				3D8BE1B22CECCFED00F88A2D /* PatronPagePrincipale.swift in Sources */,
+				3D1589172CF922CF0071CE2F /* SelectionOnglet.swift in Sources */,
 				3D8BE1C22CEE265D00F88A2D /* SqueletteRangAttraction.swift in Sources */,
 				3DB753492CE8E40300F68412 /* SidneylandApp.swift in Sources */,
 				3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */,
@@ -640,7 +712,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sidneyland/Sidneyland.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Sidneyland/Preview Content\"";
 				DEVELOPMENT_TEAM = BK8PRMYFUA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -655,17 +727,17 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomaslebonnec.Sidneyland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
@@ -680,7 +752,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Sidneyland/Sidneyland.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Sidneyland/Preview Content\"";
 				DEVELOPMENT_TEAM = BK8PRMYFUA;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -695,17 +767,17 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thomaslebonnec.Sidneyland;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";

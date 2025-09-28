@@ -15,6 +15,16 @@ struct ContentView: View {
     
     @EnvironmentObject var tailleÉcran: TailleEcran
     @EnvironmentObject var appVM: AppVM
+    @EnvironmentObject var détailAttractionVM: DetailAttractionVM
+    @EnvironmentObject var sélectionOnglet: SelectionOnglet
+    
+    
+    
+    // MARK: Init
+    
+    init() {
+        UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance.init()
+    }
     
     
     
@@ -23,72 +33,92 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { géometrie in
             ZStack {
-                TabView {
-                    vuePagePrincipale(géometrie)
-                        .tabItem {
-                            Label("Attractions", systemImage: "train.side.front.car")
-                        }
-                    
-                    Text("Favoris")
-                        .tabItem {
-                            Label("Favoris", systemImage: "heart.fill")
-                        }
-                    
-                    PageCarte()
-                        .tabItem {
-                            Label("Carte", systemImage: "map")
-                        }
-                }
-                .opacity(!appVM.détailEstAffiché ? 1 : 0)
+                vueOnglets
                 
-                if appVM.détailEstAffiché {
-                    vueDétails()
+                if détailAttractionVM.détailEstAffiché {
+                    vueDétails
                 }
             }
-        }
-    }
-    
-    
-    
-    @ViewBuilder
-    func vuePagePrincipale(_ géometrie: GeometryProxy) -> some View {
-        PagePrincipale(namespace: animationRangAttraction)
+            
             .onAppear {
-                self.tailleÉcran.configurerTaille(taille: géometrie.frame(in: .global), safeAreaTop: géometrie.safeAreaInsets.top)
+                self.tailleÉcran.configurerTaille(taille: géometrie.frame(in: .global), safeArea: géometrie.safeAreaInsets)
             }
             .onChange(of: géometrie.frame(in: .global)) { avant, après in
-                self.tailleÉcran.configurerTaille(taille: après, safeAreaTop: géometrie.safeAreaInsets.top)   // Si l'écran est tourné (iOS), ou que la fenêtre est redimensionnée (macOS)
+                // Si l'écran est tourné (iOS), ou que la fenêtre est redimensionnée (macOS)
+                self.tailleÉcran.configurerTaille(taille: après, safeArea: géometrie.safeAreaInsets)
             }
+        }
     }
     
     
-    @ViewBuilder
-    func vueDétails() -> some View {
+    
+    var vueOnglets: some View {
+        TabView(selection: $sélectionOnglet.sélection) {
+            LazyView(PagePrincipale(namespace: animationRangAttraction, favorisUniquement: false))
+                .tabItem {
+                    Label("Attractions", systemImage: "mountain.2.fill")
+                }
+                .tag(0)
+            
+            LazyView(PagePrincipale(namespace: animationRangAttraction, favorisUniquement: true))
+                .tabItem {
+                    Label("Favoris", systemImage: "heart.fill")
+                }
+                .tag(1)
+            
+            LazyView(PageCarte())
+                .tabItem {
+                    Label("Carte", systemImage: "map")
+                }
+                .tag(2)
+        }
+    }
+    
+    
+    var vueDétails: some View {
         Group {
-            if let attraction = appVM.attractionSélectionnée {
-                PageDetailAttraction(namespace: animationRangAttraction, attraction: attraction) {
-                    appVM.fermerDétail()
-                }
-            } else {
-                Button {
-                    appVM.fermerDétail()
-                } label: {
-                    VStack(alignment: .center, spacing: 16) {
-                        Image(systemName: "questionmark")
-                            .font(.titrePage)
-                            .foregroundStyle(Color.gray)
-                        
-                        Text("Une erreur est survenue\nAppuyez pour revenir")
-                            .font(.corps)
-                            .padding()
-                            .foregroundStyle(Color.white)
-                            .background(Color.purple)
-                            .bordureArrondie(rayon: 8)
+            if let attraction = détailAttractionVM.attractionSélectionnée {
+                Color.clear
+                    .overlay {
+                        PageDetailAttraction(namespace: animationRangAttraction, attraction: attraction)
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                }
+                    .ignoresSafeArea()
+                    .zIndex(3)
+                    .transition(.modale)
+            } else {
+                vueErreur
             }
         }
+    }
+    
+    
+    var vueErreur: some View {
+        Button {
+            détailAttractionVM.fermerDétail()
+        } label: {
+            VStack(alignment: .center, spacing: 16) {
+                Image(systemName: "questionmark")
+                    .font(.titrePage)
+                    .foregroundStyle(Color.gray)
+                
+                Text("Une erreur est survenue\nAppuyez pour revenir")
+                    .font(.corps)
+                    .padding()
+                    .foregroundStyle(Color.white)
+                    .background(Color.purple)
+                    .bordureArrondie(rayon: 8)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }
+    }
+}
+
+
+
+
+extension AnyTransition {
+    static var identityHack: AnyTransition {
+        .asymmetric(insertion: .identity, removal: .identity)
     }
 }
 
@@ -100,4 +130,6 @@ struct ContentView: View {
     ContentView()
         .environmentObject(TailleEcran())
         .environmentObject(AppVM())
+        .environmentObject(DetailAttractionVM())
+        .environmentObject(SelectionOnglet())
 }

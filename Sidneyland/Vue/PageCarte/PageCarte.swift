@@ -11,13 +11,19 @@ struct PageCarte: View {
     
     // MARK: Attributs
     
+    @EnvironmentObject var sélectionOnglet: SelectionOnglet
+    @EnvironmentObject var appVM: AppVM
+    
     @State var décalage = CGSize.zero
     @State var dernierDécalage = CGSize.zero
     @State var agrandissement: CGFloat = 1
     @State var dernierAgrandissement: CGFloat = 1
     @State var centreAgrandissement: CGPoint?
     
-    let ratioImage: Double = 7680 / 8192 // Ancienne carte 2530 / 1893
+    let largeurImage: Double = 7680
+    let hauteurImage: Double = 8192
+    let ratioImage: Double = 7680 / 8192
+    
     
     
     
@@ -28,6 +34,7 @@ struct PageCarte: View {
             Color(hex: "#E3EFC7")
                 .ignoresSafeArea()
             
+            
             GeometryReader { géometrie in
                 Image("Carte Parc")
                     .resizable()
@@ -35,6 +42,9 @@ struct PageCarte: View {
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     .scaleEffect(agrandissement)
                     .offset(décalage)
+                    .overlay {
+                        TissuCarte(largeurImage: largeurImage, hauteurImage: hauteurImage, décalage: $décalage, agrandissement: $agrandissement)
+                    }
                     .gesture(
                         DragGesture()
                             .onChanged { valeur in
@@ -96,6 +106,33 @@ struct PageCarte: View {
                             }
                     )
             }
+            
+            
+            boutonRaffraichir
+        }
+    }
+    
+    
+    var boutonRaffraichir: some View {
+        HStack {
+            Spacer()
+            
+            VStack {
+                Button {
+                    appVM.raffraichirDonnéesAttractions()
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                        .font(.information)
+                        .foregroundColor(.purple)
+                        .padding(12)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(color: .black.opacity(0.1), radius: 8)
+                }
+                .padding()
+                
+                Spacer()
+            }
         }
     }
     
@@ -134,7 +171,7 @@ struct PageCarte: View {
     
     
     func calculerAgrandissementLimité(tentativeAgrandissement: CGFloat) -> CGFloat {
-        return min(7, max(1, tentativeAgrandissement))
+        return min(8, max(1, tentativeAgrandissement))
     }
     
     
@@ -151,5 +188,13 @@ struct PageCarte: View {
             height: décalage.height - pointToucherImage.y * (agrandissement - 1)
         )
     }
+}
+
+
+
+
+#Preview {
+    PageCarte()
+        .environmentObject(AppVM())
 }
 

@@ -12,9 +12,10 @@ struct RangAttraction: View {
     // MARK: Attributs
     
     var namespace: Namespace.ID
-    @EnvironmentObject var appVM: AppVM
-    
     var attraction: Attraction
+    
+    @EnvironmentObject var vm: DetailAttractionVM
+    @EnvironmentObject var sélectionOnglet: SelectionOnglet
     
     
     
@@ -22,26 +23,14 @@ struct RangAttraction: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            if !(appVM.détailEstAffiché && appVM.attractionSélectionnée?.id == attraction.id) {
-                VStack {
-                    Image(attraction.image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .matchedGeometryEffect(id: "Image-\(attraction.id)", in: namespace)
-                }
-                .frame(width: 60, height: 60)
-                .mask {
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .matchedGeometryEffect(id: "MasqueImage-\(attraction.id)", in: namespace)
-                }
-                
+            if !(vm.détailEstAffiché && vm.attractionSélectionnée?.id == attraction.id) {
+                vueImage
+                    .matchedGeometryEffect(id: "\(attraction.id)-P\(sélectionOnglet.sélection)", in: namespace, properties: .frame, isSource: true)
+                    .transition(.invisible)
             } else {
-                // Remplacement transparent pour la photo
-                Rectangle()
-                    .opacity(0)
+                Color.clear
                     .frame(width: 60, height: 60)
             }
-            
             
             VStack(alignment: .leading, spacing: 3) {
                 Text(attraction.nomCourt ?? attraction.nom)
@@ -56,9 +45,16 @@ struct RangAttraction: View {
                     Text(attraction.parc.rawValue)
                         .font(.description)
                         .foregroundStyle(Color.gray)
+                    
+                    if attraction.estFavorite {
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 15)
+                            .foregroundStyle(Color.purple)
+                    }
                 }
             }
-            .zIndex(-2)
             
             Spacer()
             
@@ -66,7 +62,22 @@ struct RangAttraction: View {
                 IndicateurAttente(tempsAttente: informations.tempsAttente, fonctionnement: informations.fonctionnement)
             }
         }
-        .zIndex(appVM.attractionSélectionnée?.id == attraction.id ? 10 : -1)
+    }
+    
+    
+    var vueImage: some View {
+        Color.clear
+            .overlay {
+                Image("\(attraction.image) Petit")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    //.frame(width: 60, height: 60)
+            }
+            .mask {
+                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                    //.frame(width: 60, height: 60)
+            }
+            .frame(width: 60, height: 60)
     }
 }
 
@@ -77,7 +88,7 @@ struct RangAttraction: View {
 #Preview {
     @Previewable @Namespace var animationRangAttraction
     
-    var attraction = Attraction(
+    let attraction = Attraction(
         id: "P0AA00",
         nom: "Big Thunder Mountain",
         image: "BTM",
@@ -94,4 +105,6 @@ struct RangAttraction: View {
     
     return RangAttraction(namespace: animationRangAttraction, attraction: attraction)
         .environmentObject(AppVM())
+        .environmentObject(DetailAttractionVM())
+        .environmentObject(SelectionOnglet())
 }

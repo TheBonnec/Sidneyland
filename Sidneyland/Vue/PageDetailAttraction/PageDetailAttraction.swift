@@ -12,10 +12,12 @@ struct PageDetailAttraction: View {
     // MARK: Attributs
     
     var namespace: Namespace.ID
-    //@EnvironmentObject var appVM: AppVM
-    
     var attraction: Attraction
-    var actionFermeture: () -> Void
+    
+    @Environment(\.progressionTransitionModale) var progression
+    @EnvironmentObject var détailAttractionVM: DetailAttractionVM
+    @EnvironmentObject var tailleÉcran: TailleEcran
+    @EnvironmentObject var sélectionOnglet: SelectionOnglet
     
     @State private var vueChargée = false
     
@@ -23,10 +25,9 @@ struct PageDetailAttraction: View {
     
     // MARK: Init
     
-    init(namespace: Namespace.ID, attraction: Attraction, actionFermeture: @escaping () -> Void) {
+    init(namespace: Namespace.ID, attraction: Attraction) {
         self.namespace = namespace
         self.attraction = attraction
-        self.actionFermeture = actionFermeture
     }
     
     
@@ -34,41 +35,71 @@ struct PageDetailAttraction: View {
     // MARK: Vue
     
     var body: some View {
-        ZStack {
-            imageFond
+        
+        let tailleImage = CGSize(
+            width: tailleÉcran.largeur,
+            height: tailleÉcran.hauteur
+        )
+        
+        // Différence entre l'image de détail et la vignette
+        let différence = CGSize(
+            width: tailleImage.width - 60,
+            height: tailleImage.height - 60
+        )
+        
+        let w = 60 + différence.width * progression
+        let h = 60 + différence.height * progression
+        
+        
+        return ZStack {
+            imageFond(w: w, h: h)
+            
             VStack {
                 Spacer()
                 contenu
             }
-            boutonFermeture
+            .zIndex(3)
+            
+            boutons
         }
         .onAppear {
-            withAnimation(.spring(duration: 0.3, bounce: 0.2)) {
+            withAnimation(.ressort) {
                 vueChargée = true
             }
         }
-        .onDisappear() {
-            withAnimation(.spring(duration: 0.2, bounce: 0.2)) {
-                vueChargée = false
+        .onDisappear {
+            //TODO: Mettre en place une méthode avec 2 MGE() par vue pour faire en sorte qu'une soit utilisée quand la seconde n'a pas terminée
+            /*
+            détailAttractionVM.attractionSélectionnée = nil
+            print("Disparu")
+            */
+        }
+        // En cas de bug, la vue peut ne pas avoir été complètement fermée avant d'être réouverte. Puisqu'elle n'est jamais vraiment fermé en cas de bug, elle peut donc detecter les changement détailAttractionVM.détailEstAffiché,
+        .onChange(of: détailAttractionVM.détailEstAffiché) { oldValue, newValue in
+            withAnimation(.ressort) {
+                vueChargée = newValue
             }
         }
     }
     
     
     
-    var imageFond: some View {
-        VStack {
-            Image(attraction.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "Image-\(attraction.id)", in: namespace)
-        }
-        .frame(minWidth: 0, maxWidth: .infinity)
-        .mask {
-            RoundedRectangle(cornerRadius: 0, style: .continuous)
-                .matchedGeometryEffect(id: "MasqueImage-\(attraction.id)", in: namespace)
-        }
-        .ignoresSafeArea()
+    @ViewBuilder
+    func imageFond(w: CGFloat, h: CGFloat) -> some View {
+        Color.clear
+            .overlay {
+                Image(attraction.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: w, height: h + progression)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .clipped()
+                    .zIndex(2)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .contentShape(RoundedRectangle(cornerRadius: 8))
+            .frame(width: w, height: h + progression)
+            .matchedGeometryEffect(id: "\(attraction.id)-P\(sélectionOnglet.sélection)", in: namespace, properties: .frame)
     }
     
     
@@ -91,14 +122,19 @@ struct PageDetailAttraction: View {
             .padding()
         }
         .fixedSize(horizontal: false, vertical: true)
-        .offset(y: vueChargée ? 0 : 300)
+        .offset(y: vueChargée ? -tailleÉcran.safeAreaBas : 300)
     }
     
     
-    var boutonFermeture: some View {
-        HStack {
-            VStack {
-                Button(action: actionFermeture) {
+    var boutons: some View {
+        VStack {
+            HStack {
+                Button {
+                    détailAttractionVM.fermerDétail()
+                    withAnimation(.ressortRapide) {
+                        vueChargée = false
+                    }
+                } label: {
                     Image(systemName: "xmark")
                         .font(.information)
                         .foregroundColor(.purple)
@@ -110,10 +146,16 @@ struct PageDetailAttraction: View {
                 .padding()
                 
                 Spacer()
+                
+                
+                BoutonFavori(attraction: attraction)
+                
             }
             
             Spacer()
         }
+        .offset(y: vueChargée ? tailleÉcran.safeAreaHaut : -300)
+        .zIndex(3)
     }
 }
 
@@ -124,7 +166,7 @@ struct PageDetailAttraction: View {
 
 
 #Preview {
-    @Previewable @StateObject var appVM = AppVM()
+    @Previewable @StateObject var détailAttractionVM = DetailAttractionVM()
     @Previewable @Namespace var animationRangAttraction
     
     
@@ -135,7 +177,7 @@ struct PageDetailAttraction: View {
         fonctionnement: .enMarche
     )
     
-    var attraction = Attraction(
+    let attraction = Attraction(
         id: "P0AA00",
         nom: "Big Thunder Mountain",
         image: "BTM",
@@ -146,8 +188,8 @@ struct PageDetailAttraction: View {
     
     attraction.modifierInformation(informations)
     
-    return PageDetailAttraction(namespace: animationRangAttraction, attraction: attraction) {
-        print("")
-    }
-    .environmentObject(appVM)
+    return PageDetailAttraction(namespace: animationRangAttraction, attraction: attraction)
+        .environmentObject(détailAttractionVM)
+        .environmentObject(TailleEcran())
+        .environmentObject(SelectionOnglet())
 }

@@ -5,7 +5,7 @@
 //  Created by Thomas Le Bonnec on 15/09/2024.
 //
 
-import Foundation
+import SwiftUI
 
 
 class RegistreAttractions {
@@ -21,7 +21,9 @@ class RegistreAttractions {
             image: "Main Street Station",
             couleur: "#063648",
             parc: .disneyland,
-            univers: .mainStreet
+            univers: .mainStreet,
+            positionCarte: UnitPoint(x: 0.064453125, y: -0.068603515625),
+            importance: 2
         )
         attractions.append(gareMainstreet)
         
@@ -37,7 +39,9 @@ class RegistreAttractions {
             image: "BTM",
             couleur: "#3E2500",
             parc: .disneyland,
-            univers: .frontierland
+            univers: .frontierland,
+            positionCarte: UnitPoint(x: -0.13671875, y: -0.0927734375),
+            importance: 1
         )
         attractions.append(btm)
         
@@ -47,7 +51,9 @@ class RegistreAttractions {
             image: "Phantom Manor",
             couleur: "#332500",
             parc: .disneyland,
-            univers: .frontierland
+            univers: .frontierland,
+            positionCarte: UnitPoint(x: -0.0125, y: -0.04833984375),
+            importance: 2
         )
         attractions.append(phantomManor)
         
@@ -58,7 +64,9 @@ class RegistreAttractions {
             image: "TMRL",
             couleur: "#3E2500",
             parc: .disneyland,
-            univers: .frontierland
+            univers: .frontierland,
+            positionCarte: UnitPoint(x: -0.060416666666, y: -0.076416015625),
+            importance: 3
         )
         attractions.append(riverboatLanding)
         
@@ -68,7 +76,9 @@ class RegistreAttractions {
             nomCourt: "Gare Frontierland",
             image: "Frontierland Depot",
             parc: .disneyland,
-            univers: .frontierland
+            univers: .frontierland,
+            positionCarte: UnitPoint(x: -0.25, y: -0.0184326171875),
+            importance: 2
         )
         attractions.append(gareFrontierland)
         
@@ -84,7 +94,9 @@ class RegistreAttractions {
             image: "Adventure Isle",
             couleur: "#5A420C",
             parc: .disneyland,
-            univers: .adventureland
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.206510416666, y: -0.193603515625),
+            importance: 3
         )
         attractions.append(adventureIsle)
         
@@ -94,7 +106,9 @@ class RegistreAttractions {
             image: "Cabane Robinson",
             couleur: "#233E09",
             parc: .disneyland,
-            univers: .adventureland
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.186197916666, y: -0.15625),
+            importance: 2
         )
         attractions.append(cabaneDesRobinson)
         
@@ -103,7 +117,9 @@ class RegistreAttractions {
             nom: "Indiana Jones",
             image: "Indiana Jones",
             parc: .disneyland,
-            univers: .adventureland
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.276302083333, y: -0.15087890625),
+            importance: 1
         )
         attractions.append(indianaJones)
         
@@ -113,7 +129,9 @@ class RegistreAttractions {
             nomCourt: "Passage d'Aladdin",
             image: "Passage Aladdin",
             parc: .disneyland,
-            univers: .adventureland
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.123177083333, y: -0.189208984375),
+            importance: 3
         )
         attractions.append(passageAladdin)
         
@@ -123,7 +141,9 @@ class RegistreAttractions {
             image: "Pirates des Caraibes",
             couleur: "#440303",
             parc: .disneyland,
-            univers: .adventureland
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.2296875, y: -0.247314453125),
+            importance: 1
         )
         attractions.append(pirateOfTheCaribbean)
         
@@ -140,7 +160,9 @@ class RegistreAttractions {
             image: "Labyrinthe Alice",
             couleur: "#5A0A4B",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.14973958333333331, y: -0.314453125),
+            importance: 2
         )
         attractions.append(labyrintheAlice)
         
@@ -151,7 +173,9 @@ class RegistreAttractions {
             image: "Blanche Neige",
             couleur: "#0B1870",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.10286458333333331, y: -0.22900390625),
+            importance: 3
         )
         attractions.append(blancheNeige)
         
@@ -162,7 +186,9 @@ class RegistreAttractions {
             image: "Carrousel Lancelot",
             couleur: "#463005",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.10677083333333331, y: -0.269287109375),
+            importance: 4
         )
         attractions.append(lancelot)
         
@@ -173,7 +199,9 @@ class RegistreAttractions {
             image: "Casey JR",
             couleur: "#52062A",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.16471354166666669, y: -0.366943359375),
+            importance: 3
         )
         attractions.append(caseyJR)
         
@@ -194,7 +222,9 @@ class RegistreAttractions {
             image: "Dumbo",
             couleur: "#430406",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.14127604166666669, y: -0.2652587890625),
+            importance: 4
         )
         attractions.append(dumbo)
         
@@ -204,7 +234,9 @@ class RegistreAttractions {
             image: "Maison Poupees",
             couleur: "#500523",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.07291666666666669, y: -0.3681640625),
+            importance: 1
         )
         attractions.append(itsASmallWorld)
         
@@ -215,7 +247,9 @@ class RegistreAttractions {
             image: "Les Tasses",
             couleur: "#073137",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.11588541666666669, y: -0.29248046875),
+            importance: 3
         )
         attractions.append(lesTasses)
         
@@ -226,7 +260,9 @@ class RegistreAttractions {
             image: "Contes de Fees",
             couleur: "#053A3B",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.13802083333333331, y: -0.3583984375),
+            importance: 4
         )
         attractions.append(leContesDeFées)
         
@@ -236,7 +272,9 @@ class RegistreAttractions {
             image: "Peter Pan",
             couleur: "#012041",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.18619791666666669, y: -0.26806640625),
+            importance: 4
         )
         attractions.append(peterPan)
         
@@ -246,7 +284,9 @@ class RegistreAttractions {
             image: "Dragon",
             couleur: "#1B3705",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.0859375, y: -0.205810546875),
+            importance: 3
         )
         attractions.append(dragon)
         
@@ -257,7 +297,9 @@ class RegistreAttractions {
             image: "Pinocchio",
             couleur: "#032713",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.12630208333333331, y: -0.237548828125),
+            importance: 4
         )
         attractions.append(pinocchio)
         
@@ -268,7 +310,9 @@ class RegistreAttractions {
             image: "Gare Fantasyland",
             couleur: "#133E39",
             parc: .disneyland,
-            univers: .fantasyland
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.203125, y: -0.32666015625),
+            importance: 2
         )
         attractions.append(gareFantasyland)
         
@@ -284,7 +328,9 @@ class RegistreAttractions {
             image: "Autopia",
             couleur: "#0B1870",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.0768229166666, y: -0.210693359375),
+            importance: 3
         )
         attractions.append(autopia)
         
@@ -294,7 +340,9 @@ class RegistreAttractions {
             image: "Buzz Eclair",
             couleur: "#370A77",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.0059895833333, y: -0.237060546875),
+            importance: 3
         )
         attractions.append(buzzEclair)
         
@@ -305,7 +353,9 @@ class RegistreAttractions {
             image: "Nautilus",
             couleur: "#382C17",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.081510416666, y: -0.23876953125),
+            importance: 4
         )
         attractions.append(nautilus)
         
@@ -315,7 +365,9 @@ class RegistreAttractions {
             image: "Orbitron",
             couleur: "#4B2403",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.036458333333, y: -0.23876953125),
+            importance: 4
         )
         attractions.append(orbitron)
         
@@ -325,7 +377,9 @@ class RegistreAttractions {
             image: "Space Mountain",
             couleur: "#002845",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.0703125, y: -0.275390625),
+            importance: 1
         )
         attractions.append(spaceMountain)
         
@@ -335,7 +389,9 @@ class RegistreAttractions {
             image: "Star Tours",
             couleur: "#021A2E",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.078125, y: -0.314453125),
+            importance: 2
         )
         attractions.append(starTour)
         
@@ -346,7 +402,9 @@ class RegistreAttractions {
             image: "Gare Discoveryland",
             couleur: "#2B2722",
             parc: .disneyland,
-            univers: .discoveryland
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.0716145833333, y: -0.342529296875),
+            importance: 4
         )
         attractions.append(gareDiscoveryland)
         
@@ -362,7 +420,9 @@ class RegistreAttractions {
             image: "HTH",
             couleur: "#200642",
             parc: .studio,
-            univers: .productionCourtyard
+            univers: .productionCourtyard,
+            positionCarte: UnitPoint(x: 0.046875, y: 0.258056640625),
+            importance: 1
         )
         attractions.append(hth)
         
@@ -372,7 +432,9 @@ class RegistreAttractions {
             image: "Flight Force",
             couleur: "#04132D",
             parc: .studio,
-            univers: .marvelAvengersCampus
+            univers: .marvelAvengersCampus,
+            positionCarte: UnitPoint(x: 0.09635416666666, y: 0.331298828125),
+            importance: 1
         )
         attractions.append(flightForce)
         
@@ -383,7 +445,9 @@ class RegistreAttractions {
             image: "Spider Man",
             couleur: "#0A0644",
             parc: .studio,
-            univers: .marvelAvengersCampus
+            univers: .marvelAvengersCampus,
+            positionCarte: UnitPoint(x: 0.08203125, y: 0.272705078125),
+            importance: 3
         )
         attractions.append(spiderMan)
         
@@ -393,7 +457,9 @@ class RegistreAttractions {
             image: "Crush Coaster",
             couleur: "#052345",
             parc: .studio,
-            univers: .worldsOfPixar
+            univers: .worldsOfPixar,
+            positionCarte: UnitPoint(x: 0.00390625, y: 0.114013671875),
+            importance: 1
         )
         attractions.append(crushCoaster)
         
@@ -403,7 +469,9 @@ class RegistreAttractions {
             image: "Ratatouille",
             couleur: "#001225",
             parc: .studio,
-            univers: .worldsOfPixar
+            univers: .worldsOfPixar,
+            positionCarte: UnitPoint(x: -0.06640625, y: 0.15673828125),
+            importance: 2
         )
         attractions.append(ratatouille)
         
@@ -413,7 +481,9 @@ class RegistreAttractions {
             image: "RC Racer",
             couleur: "#AC2E00",
             parc: .studio,
-            univers: .worldsOfPixar
+            univers: .worldsOfPixar,
+            positionCarte: UnitPoint(x: -0.05859375, y: 0.231201171875),
+            importance: 3
         )
         attractions.append(rcRacer)
         
@@ -424,7 +494,9 @@ class RegistreAttractions {
             image: "Slinky Dog",
             couleur: "#482408",
             parc: .studio,
-            univers: .worldsOfPixar
+            univers: .worldsOfPixar,
+            positionCarte: UnitPoint(x: -0.033854166666666685, y: 0.209228515625),
+            importance: 4
         )
         attractions.append(slinkyDog)
         
@@ -435,7 +507,9 @@ class RegistreAttractions {
             image: "Soldiers Parachute",
             couleur: "#0E2518",
             parc: .studio,
-            univers: .worldsOfPixar
+            univers: .worldsOfPixar,
+            positionCarte: UnitPoint(x: -0.00390625, y: 0.2080078125),
+            importance: 3
         )
         attractions.append(soldiersParachute)
         
@@ -445,7 +519,9 @@ class RegistreAttractions {
             image: "Cars Road Trip",
             couleur: "#450003",
             parc: .studio,
-            univers: .worldsOfPixar
+            univers: .worldsOfPixar,
+            positionCarte: UnitPoint(x: -0.15625, y: 0.253173828125),
+            importance: 2
         )
         attractions.append(carsRoadTrip)
         

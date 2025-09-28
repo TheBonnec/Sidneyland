@@ -12,11 +12,9 @@ class AppVM: ObservableObject {
     
     // MARK: Attributs
     
+    @AppStorage("idAttractionsFavorites") var idAttractionsFavorites: [String] = []
     @Published var attractions: [Attraction] = []
     @Published var chargement: Bool = false
-    
-    @Published var attractionSélectionnée: Attraction?
-    @Published var détailEstAffiché: Bool = false
     
     
     
@@ -37,6 +35,7 @@ class AppVM: ObservableObject {
                 let nouvellesAttraction = try await GestionnaireAttractions.obtenirDonnéesAttractions()
                 DispatchQueue.main.async {
                     self.attractions = nouvellesAttraction
+                    self.chargerAttractionFavorite()
                 }
             } catch {
                 print("AppVM - Erreur lors du raffraichissement des données")
@@ -49,17 +48,34 @@ class AppVM: ObservableObject {
     }
     
     
-    func ouvrirDétail(attraction: Attraction) {
-        withAnimation(.spring(duration: 0.3, bounce: 0.2)) {
-            attractionSélectionnée = attraction
-            détailEstAffiché = true
-        }
+    func ajouterAttractionFavorite(attraction: Attraction) {
+        let id = attraction.id
+        guard !idAttractionsFavorites.contains(id) else { return }          // N'est pas déjà favorite
+        guard attractions.contains(where: { $0.id == id }) else { return }  // Existe
+        
+        idAttractionsFavorites.append(id)
+        attraction.estFavorite = true
     }
     
     
-    func fermerDétail() {
-        withAnimation(.spring(duration: 0.2, bounce: 0.2)) {
-            détailEstAffiché = false
+    func enleverAttractionFavorite(attraction: Attraction) {
+        let id = attraction.id
+        guard idAttractionsFavorites.contains(id) else { return }
+        guard attractions.contains(where: { $0.id == id }) else { return }
+        
+        idAttractionsFavorites.removeAll(where: { $0 == id })
+        attraction.estFavorite = false
+    }
+    
+    
+    private func chargerAttractionFavorite() {
+        for attraction in attractions {
+            for idAttractionFavorite in idAttractionsFavorites {
+                if idAttractionFavorite == attraction.id {
+                    attraction.estFavorite = true
+                }
+            }
         }
     }
+    
 }
