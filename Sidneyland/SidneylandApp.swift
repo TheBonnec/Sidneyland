@@ -9,9 +9,21 @@ import SwiftUI
 
 @main
 struct SidneylandApp: App {
+    
+    @StateObject var tailleÉcran = TailleEcran()
+    @StateObject var appVM = AppVM()
+    @StateObject var détailAttractionVM = DetailAttractionVM()
+    @StateObject var sélectionOnglet = SelectionOnglet()
+    
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(tailleÉcran)
+                .environmentObject(appVM)
+                .environmentObject(détailAttractionVM)
+                .environmentObject(sélectionOnglet)
         }
     }
 }

@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Sidneyland Icone.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -12,6 +13,7 @@
           "value" : "dark"
         }
       ],
+      "filename" : "Sidneyland Icone - Sombre.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -23,6 +25,7 @@
           "value" : "tinted"
         }
       ],
+      "filename" : "Sidneyland Icone - Tinté.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
