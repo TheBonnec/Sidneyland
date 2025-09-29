@@ -252,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB7533F2CE8E40300F68412 /* ContentView.swift */,
-				3DEB26002CEEBCED00639F80 /* PagePrincipal */,
+				3DEB26002CEEBCED00639F80 /* PageAttractions */,
 				3DEB26012CEEBD0800639F80 /* PageDetailAttraction */,
 				3D1588792CF28CBA0071CE2F /* PageCarte */,
 				3D8BE19D2CEC1DF100F88A2D /* Composants */,
@@ -362,7 +362,7 @@
 			path = Sidneyland;
 			sourceTree = "<group>";
 		};
-		3DEB26002CEEBCED00639F80 /* PagePrincipal */ = {
+		3DEB26002CEEBCED00639F80 /* PageAttractions */ = {
 			isa = PBXGroup;
 			children = (
 				3D6AEB862E8AEB05004D864C /* PageAttractions.swift */,
@@ -374,7 +374,7 @@
 				3D8BE1AF2CEC2A4000F88A2D /* RangAttraction.swift */,
 				3D8BE1C12CEE265D00F88A2D /* SqueletteRangAttraction.swift */,
 			);
-			path = PagePrincipal;
+			path = PageAttractions;
 			sourceTree = "<group>";
 		};
 		3DEB26012CEEBD0800639F80 /* PageDetailAttraction */ = {
