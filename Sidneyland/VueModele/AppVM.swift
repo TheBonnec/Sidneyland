@@ -33,7 +33,7 @@ class AppVM: ObservableObject {
         Task {
             do {
                 let nouvellesAttraction = try await GestionnaireAttractions.obtenirDonnéesAttractions()
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.attractions = nouvellesAttraction
                     self.chargerAttractionFavorite()
                 }
@@ -41,7 +41,7 @@ class AppVM: ObservableObject {
                 print("AppVM - Erreur lors du raffraichissement des données")
             }
             
-            DispatchQueue.main.async {
+            await MainActor.run {
                 self.chargement = false
             }
         }

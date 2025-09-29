@@ -17,17 +17,16 @@ class Polices {
 
 
 extension Font {
-    // Oui ok j'avais plus de nom tu vas faire quoi ?
-    static var gigaTitre: Font {
+    static var grosTitre: Font {
         .custom(Polices.MontserratBold, size: 28)
     }
     
-    static var grosTitre: Font {
-        .custom(Polices.MontserratSemiBold, size: 24)
+    static var titreSection: Font {
+        .custom(Polices.MontserratSemiBold, size: 18)
     }
     
-    static var titrePage: Font {
-        .custom(Polices.MontserratSemiBold, size: 20)
+    static var sousTitre: Font {
+        .custom(Polices.MontserratSemiBold, size: 15)
     }
     
     static var information: Font {
@@ -42,7 +41,7 @@ extension Font {
         .custom(Polices.MontserratMedium, size: 15)
     }
     
-    static var descriptionImportant: Font {
+    static var descriptionImportante: Font {
         .custom(Polices.MontserratSemiBold, size: 13)
     }
     

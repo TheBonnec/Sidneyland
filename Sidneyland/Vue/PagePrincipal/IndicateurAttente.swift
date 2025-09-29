@@ -26,16 +26,23 @@ struct IndicateurAttente: View {
         Group {
             if fonctionnement == .enMarche {
                 vueChiffre
+                    //.padding(.horizontal, 16)
             } else {
-                vueSymbole
+                // Vue symbole
+                Image(systemName: symbole())
+                    //.frame(width: 48)
             }
         }
+        //.frame(height: 48)
+        //.foregroundStyle(Color.white)
+        //.background(couleurAccent())
         .foregroundStyle(couleurAccent())
-        .bordureArrondie(rayon: 8)
+        //.bordureArrondie(rayon: 1000)
     }
     
     
     var vueChiffre: some View {
+        //HStack(alignment: .firstTextBaseline, spacing: 4) {
         VStack(spacing: 0) {
             Text("\(tempsAttente)")
                 .font(.information)
@@ -43,16 +50,6 @@ struct IndicateurAttente: View {
             Text("min")
                 .font(.note)
         }
-        .frame(width: 50, height: 60)
-        .background(couleurAccent().opacity(opacité()))
-    }
-    
-    
-    var vueSymbole: some View {
-        Group {
-            Image(systemName: symbole())
-        }
-        .frame(width: 50, height: 60)
     }
     
     
@@ -73,7 +70,7 @@ struct IndicateurAttente: View {
             return .purple
         }
         
-        return .gray
+        return .white.opacity(0.64)
     }
     
     
@@ -85,14 +82,6 @@ struct IndicateurAttente: View {
         case .enTravaux: "wrench.and.screwdriver.fill"
         case .inconnu: "questionmark"
         }
-    }
-    
-    
-    func opacité() -> Double {
-        if colorScheme == .dark {
-            return 0.15
-        }
-        return 0.08
     }
 }
 

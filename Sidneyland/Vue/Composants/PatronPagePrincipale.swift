@@ -105,7 +105,7 @@ struct PatronPagePrincipale<Contenu: View>: View {
     var compteÀRebours: some View {
         VStack(spacing: 12) {
             Text(tempsRestant)
-                .font(.gigaTitre)
+                .font(.grosTitre)
             
             /*
             let pourcentage = min(pourcentageRestant, 1.0)

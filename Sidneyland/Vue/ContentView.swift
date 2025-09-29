@@ -31,6 +31,8 @@ struct ContentView: View {
     // MARK: Vue
     
     var body: some View {
+        PageAttractions()
+        /*
         GeometryReader { géometrie in
             ZStack {
                 vueOnglets
@@ -47,7 +49,7 @@ struct ContentView: View {
                 // Si l'écran est tourné (iOS), ou que la fenêtre est redimensionnée (macOS)
                 self.tailleÉcran.configurerTaille(taille: après, safeArea: géometrie.safeAreaInsets)
             }
-        }
+        }*/
     }
     
     
@@ -98,7 +100,7 @@ struct ContentView: View {
         } label: {
             VStack(alignment: .center, spacing: 16) {
                 Image(systemName: "questionmark")
-                    .font(.titrePage)
+                    .font(.sousTitre)
                     .foregroundStyle(Color.gray)
                 
                 Text("Une erreur est survenue\nAppuyez pour revenir")

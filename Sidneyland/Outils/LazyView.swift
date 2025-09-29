@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Permet de créer la vue contenue seulement au moment où elle est affichée
 struct LazyView<Content: View>: View {
     let build: () -> Content
 

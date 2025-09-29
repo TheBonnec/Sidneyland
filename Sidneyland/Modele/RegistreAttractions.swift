@@ -43,6 +43,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: -0.13671875, y: -0.0927734375),
             importance: 1
         )
+        btm.estFavorite = true
         attractions.append(btm)
         
         let phantomManor = Attraction(
@@ -55,6 +56,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: -0.0125, y: -0.04833984375),
             importance: 2
         )
+        phantomManor.estFavorite = true
         attractions.append(phantomManor)
         
         let riverboatLanding = Attraction(
@@ -68,6 +70,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: -0.060416666666, y: -0.076416015625),
             importance: 3
         )
+        riverboatLanding.estFavorite = true
         attractions.append(riverboatLanding)
         
         let gareFrontierland = Attraction(
@@ -87,6 +90,32 @@ class RegistreAttractions {
         
         
         // MARK: Adventureland
+        
+        
+        let indianaJones = Attraction(
+            id: "P1AA02",
+            nom: "Indiana Jones",
+            image: "Indiana Jones",
+            parc: .disneyland,
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.276302083333, y: -0.15087890625),
+            importance: 1
+        )
+        indianaJones.estFavorite = true
+        attractions.append(indianaJones)
+        
+        let pirateOfTheCaribbean = Attraction(
+            id: "P1AA04",
+            nom: "Pirate des Caraïbes",
+            image: "Pirates des Caraibes",
+            couleur: "#440303",
+            parc: .disneyland,
+            univers: .adventureland,
+            positionCarte: UnitPoint(x: -0.2296875, y: -0.247314453125),
+            importance: 1
+        )
+        pirateOfTheCaribbean.estFavorite = true
+        attractions.append(pirateOfTheCaribbean)
         
         let adventureIsle = Attraction(
             id: "P1AA00",
@@ -112,17 +141,6 @@ class RegistreAttractions {
         )
         attractions.append(cabaneDesRobinson)
         
-        let indianaJones = Attraction(
-            id: "P1AA02",
-            nom: "Indiana Jones",
-            image: "Indiana Jones",
-            parc: .disneyland,
-            univers: .adventureland,
-            positionCarte: UnitPoint(x: -0.276302083333, y: -0.15087890625),
-            importance: 1
-        )
-        attractions.append(indianaJones)
-        
         let passageAladdin = Attraction(
             id: "P1AA03",
             nom: "Le Passage Enchanté d'Aladdin",
@@ -135,75 +153,11 @@ class RegistreAttractions {
         )
         attractions.append(passageAladdin)
         
-        let pirateOfTheCaribbean = Attraction(
-            id: "P1AA04",
-            nom: "Pirate des Caraïbes",
-            image: "Pirates des Caraibes",
-            couleur: "#440303",
-            parc: .disneyland,
-            univers: .adventureland,
-            positionCarte: UnitPoint(x: -0.2296875, y: -0.247314453125),
-            importance: 1
-        )
-        attractions.append(pirateOfTheCaribbean)
-        
         
         
         
         
         // MARK: Fantasyland
-        
-        let labyrintheAlice = Attraction(
-            id: "P1NA00",
-            nom: "Alice's Curious Labyrinth",
-            nomCourt: "Labyrinthe d'Alice",
-            image: "Labyrinthe Alice",
-            couleur: "#5A0A4B",
-            parc: .disneyland,
-            univers: .fantasyland,
-            positionCarte: UnitPoint(x: -0.14973958333333331, y: -0.314453125),
-            importance: 2
-        )
-        attractions.append(labyrintheAlice)
-        
-        let blancheNeige = Attraction(
-            id: "P1NA01",
-            nom: "Blanche-Neige et les Sept Nains",
-            nomCourt: "Blanche-Neige",
-            image: "Blanche Neige",
-            couleur: "#0B1870",
-            parc: .disneyland,
-            univers: .fantasyland,
-            positionCarte: UnitPoint(x: -0.10286458333333331, y: -0.22900390625),
-            importance: 3
-        )
-        attractions.append(blancheNeige)
-        
-        let lancelot = Attraction(
-            id: "P1NA02",
-            nom: "Le Carrousel de Lancelot",
-            nomCourt: "Carrousel Lancelot",
-            image: "Carrousel Lancelot",
-            couleur: "#463005",
-            parc: .disneyland,
-            univers: .fantasyland,
-            positionCarte: UnitPoint(x: -0.10677083333333331, y: -0.269287109375),
-            importance: 4
-        )
-        attractions.append(lancelot)
-        
-        let caseyJR = Attraction(
-            id: "P1NA03",
-            nom: "Casey Jr. - Le Petit Train du Cirque",
-            nomCourt: "Casey Jr.",
-            image: "Casey JR",
-            couleur: "#52062A",
-            parc: .disneyland,
-            univers: .fantasyland,
-            positionCarte: UnitPoint(x: -0.16471354166666669, y: -0.366943359375),
-            importance: 3
-        )
-        attractions.append(caseyJR)
         
         let chateau = Attraction(
             id: "P1NA04",
@@ -214,19 +168,8 @@ class RegistreAttractions {
             parc: .disneyland,
             univers: .fantasyland
         )
+        chateau.estFavorite = true
         attractions.append(chateau)
-        
-        let dumbo = Attraction(
-            id: "P1NA05",
-            nom: "Dumbo",
-            image: "Dumbo",
-            couleur: "#430406",
-            parc: .disneyland,
-            univers: .fantasyland,
-            positionCarte: UnitPoint(x: -0.14127604166666669, y: -0.2652587890625),
-            importance: 4
-        )
-        attractions.append(dumbo)
         
         let itsASmallWorld = Attraction(
             id: "P1NA07",
@@ -238,6 +181,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: -0.07291666666666669, y: -0.3681640625),
             importance: 1
         )
+        itsASmallWorld.estFavorite = true
         attractions.append(itsASmallWorld)
         
         let lesTasses = Attraction(
@@ -252,6 +196,70 @@ class RegistreAttractions {
             importance: 3
         )
         attractions.append(lesTasses)
+        
+        let labyrintheAlice = Attraction(
+            id: "P1NA00",
+            nom: "Alice's Curious Labyrinth",
+            nomCourt: "Labyrinthe d'Alice",
+            image: "Labyrinthe Alice",
+            couleur: "#5A0A4B",
+            parc: .disneyland,
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.14973958333333331, y: -0.314453125),
+            importance: 2
+        )
+        attractions.append(labyrintheAlice)
+        
+        let lancelot = Attraction(
+            id: "P1NA02",
+            nom: "Le Carrousel de Lancelot",
+            nomCourt: "Carrousel Lancelot",
+            image: "Carrousel Lancelot",
+            couleur: "#463005",
+            parc: .disneyland,
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.10677083333333331, y: -0.269287109375),
+            importance: 4
+        )
+        attractions.append(lancelot)
+        
+        let blancheNeige = Attraction(
+            id: "P1NA01",
+            nom: "Blanche-Neige et les Sept Nains",
+            nomCourt: "Blanche-Neige",
+            image: "Blanche Neige",
+            couleur: "#0B1870",
+            parc: .disneyland,
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.10286458333333331, y: -0.22900390625),
+            importance: 3
+        )
+        attractions.append(blancheNeige)
+        
+        let caseyJR = Attraction(
+            id: "P1NA03",
+            nom: "Casey Jr. - Le Petit Train du Cirque",
+            nomCourt: "Casey Jr.",
+            image: "Casey JR",
+            couleur: "#52062A",
+            parc: .disneyland,
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.16471354166666669, y: -0.366943359375),
+            importance: 3
+        )
+        attractions.append(caseyJR)
+        
+        let dumbo = Attraction(
+            id: "P1NA05",
+            nom: "Dumbo",
+            image: "Dumbo",
+            couleur: "#430406",
+            parc: .disneyland,
+            univers: .fantasyland,
+            positionCarte: UnitPoint(x: -0.14127604166666669, y: -0.2652587890625),
+            importance: 4
+        )
+        attractions.append(dumbo)
         
         let leContesDeFées = Attraction(
             id: "P1NA09",
@@ -322,6 +330,32 @@ class RegistreAttractions {
         
         // MARK: Discoveryland
         
+        let spaceMountain = Attraction(
+            id: "P1DA08",
+            nom: "Space Mountain",
+            image: "Space Mountain",
+            couleur: "#002845",
+            parc: .disneyland,
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.0703125, y: -0.275390625),
+            importance: 1
+        )
+        spaceMountain.estFavorite = true
+        attractions.append(spaceMountain)
+        
+        let starTour = Attraction(
+            id: "P1DA09",
+            nom: "Star Tours",
+            image: "Star Tours",
+            couleur: "#021A2E",
+            parc: .disneyland,
+            univers: .discoveryland,
+            positionCarte: UnitPoint(x: 0.078125, y: -0.314453125),
+            importance: 2
+        )
+        starTour.estFavorite = true
+        attractions.append(starTour)
+        
         let autopia = Attraction(
             id: "P1DA03",
             nom: "Autopia",
@@ -346,19 +380,6 @@ class RegistreAttractions {
         )
         attractions.append(buzzEclair)
         
-        let nautilus = Attraction(
-            id: "P1DA06",
-            nom: "Les Mystères du Nautilus",
-            nomCourt: "Le Nautilus",
-            image: "Nautilus",
-            couleur: "#382C17",
-            parc: .disneyland,
-            univers: .discoveryland,
-            positionCarte: UnitPoint(x: 0.081510416666, y: -0.23876953125),
-            importance: 4
-        )
-        attractions.append(nautilus)
-        
         let orbitron = Attraction(
             id: "P1DA07",
             nom: "Orbitron",
@@ -371,29 +392,18 @@ class RegistreAttractions {
         )
         attractions.append(orbitron)
         
-        let spaceMountain = Attraction(
-            id: "P1DA08",
-            nom: "Space Mountain",
-            image: "Space Mountain",
-            couleur: "#002845",
+        let nautilus = Attraction(
+            id: "P1DA06",
+            nom: "Les Mystères du Nautilus",
+            nomCourt: "Le Nautilus",
+            image: "Nautilus",
+            couleur: "#382C17",
             parc: .disneyland,
             univers: .discoveryland,
-            positionCarte: UnitPoint(x: 0.0703125, y: -0.275390625),
-            importance: 1
+            positionCarte: UnitPoint(x: 0.081510416666, y: -0.23876953125),
+            importance: 4
         )
-        attractions.append(spaceMountain)
-        
-        let starTour = Attraction(
-            id: "P1DA09",
-            nom: "Star Tours",
-            image: "Star Tours",
-            couleur: "#021A2E",
-            parc: .disneyland,
-            univers: .discoveryland,
-            positionCarte: UnitPoint(x: 0.078125, y: -0.314453125),
-            importance: 2
-        )
-        attractions.append(starTour)
+        attractions.append(nautilus)
         
         let gareDiscoveryland = Attraction(
             id: "P1DA10",
@@ -424,6 +434,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: 0.046875, y: 0.258056640625),
             importance: 1
         )
+        hth.estFavorite = true
         attractions.append(hth)
         
         let flightForce = Attraction(
@@ -436,6 +447,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: 0.09635416666666, y: 0.331298828125),
             importance: 1
         )
+        flightForce.estFavorite = true
         attractions.append(flightForce)
         
         let spiderMan = Attraction(
@@ -449,6 +461,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: 0.08203125, y: 0.272705078125),
             importance: 3
         )
+        spiderMan.estFavorite = true
         attractions.append(spiderMan)
         
         let crushCoaster = Attraction(
@@ -461,6 +474,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: 0.00390625, y: 0.114013671875),
             importance: 1
         )
+        crushCoaster.estFavorite = true
         attractions.append(crushCoaster)
         
         let ratatouille = Attraction(
@@ -473,6 +487,7 @@ class RegistreAttractions {
             positionCarte: UnitPoint(x: -0.06640625, y: 0.15673828125),
             importance: 2
         )
+        ratatouille.estFavorite = true
         attractions.append(ratatouille)
         
         let rcRacer = Attraction(

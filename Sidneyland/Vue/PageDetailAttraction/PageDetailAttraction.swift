@@ -111,7 +111,7 @@ struct PageDetailAttraction: View {
             
             VStack(spacing: 24) {
                 Text(attraction.nom)
-                    .font(.gigaTitre)
+                    .font(.grosTitre)
                     .frame(maxWidth: .infinity)
                     .foregroundStyle(Color.white)
                     .multilineTextAlignment(.center)

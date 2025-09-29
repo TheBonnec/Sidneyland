@@ -1,5 +1,5 @@
 //
-//  TexteEnDate.swift
+//  String+Extensions.swift
 //  Sidneyland
 //
 //  Created by Thomas Le Bonnec on 19/11/2024.

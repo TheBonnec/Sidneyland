@@ -11,6 +11,7 @@ struct CartoucheGlossaire: View {
     
     // MARK: Attributs
     
+    @Environment(\.colorScheme) var modeLumière
     let fonctionnements: [FonctionnementAttraction] = [.enPanne, .fermée, .enTravaux, .inconnu]
     
     
@@ -25,16 +26,26 @@ struct CartoucheGlossaire: View {
                         .frame(width: 19)
                     
                     Text(fonctionnement.description)
+                        .foregroundStyle(Color.white.opacity(0.64))
                 }
             }
         }
         .font(.description)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color.fondSecondaire)
-        .foregroundStyle(Color.gray)
-        .bordureArrondie(rayon: 8)
-        .shadow(color: .black.opacity(0.1), radius: 8)
+        .padding(24)
+        .foregroundStyle(Color.white)
+        .glassEffect(teinteFond.interactive(), in: .rect(cornerRadius: 32, style: .continuous))
+    }
+    
+    
+    
+    // MARK: Propriétés Calculées
+    
+    var teinteFond: Glass {
+        if modeLumière == .light {
+            return .regular.tint(.black.opacity(0.76))
+        }
+        return .regular
     }
 }
 
@@ -43,5 +54,7 @@ struct CartoucheGlossaire: View {
 
 
 #Preview {
-    CartoucheGlossaire()
+    FondPrincipal(image: "Chateau") {
+        CartoucheGlossaire()
+    }
 }

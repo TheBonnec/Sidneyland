@@ -1,5 +1,5 @@
 //
-//  RawRepresentableString.swift
+//  Array+Extensions.swift
 //  Sidneyland
 //
 //  Created by Thomas Le Bonnec on 28/11/2024.
@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+// RawRepresentableString
 extension Array: @retroactive RawRepresentable where Element: Codable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
