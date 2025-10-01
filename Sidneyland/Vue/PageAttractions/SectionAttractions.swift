@@ -56,8 +56,8 @@ struct SectionAttractions: View {
         VStack(spacing: 16 + 4.25) { // largeur qui dépasse du coeur
             vueTitre
             vueAttractions
+                .styleConteneurisé(conteneurisé)
         }
-        .styleConteneurisé(conteneurisé)
     }
     
     
@@ -93,7 +93,7 @@ struct SectionAttractions: View {
                 }
             }
             .scrollTargetLayout()
-            .padding(.horizontal, conteneurisé ? 8 : 16)
+            .padding(.horizontal, conteneurisé ? 12 : 16)
             .fixedSize(horizontal: false, vertical: true)
         }
         .scrollTargetBehavior(.viewAligned)
@@ -110,10 +110,10 @@ fileprivate extension View {
         Group {
             if condition {
                 self
-                    .padding(.vertical, 8)
-                    .padding(.top, 12)
+                    .padding(.vertical, 12)
+                    //.padding(.top, 12)
                     .background(Color.white.opacity(0.16))
-                    .bordureArrondie(rayon: 24 + 8)
+                    .bordureArrondie(rayon: 24 + 12)
                     .clipped()
                     .padding(.horizontal, 8)
             } else {

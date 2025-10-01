@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct FlouTransparent: View {
     
     // MARK: Attributs
@@ -19,7 +20,7 @@ struct FlouTransparent: View {
     // MARK: Vue
     
     var body: some View {
-        VueFlouTransparent(supprimerTousLesFiltres: true)
+        VueFlouTransparent(supprimerTousLesFiltres: false)
             .blur(radius: tailleFlou)
             .frame(width: largeurAjustée(), height: hauteurAjustée())
             .padding([.horizontal, .bottom], -(tailleFlou * 2))
@@ -69,11 +70,17 @@ fileprivate struct VueFlouTransparent: UIViewRepresentable {
                 if supprimerTousLesFiltres {
                     coucheDeFond.filters = []
                 } else {
+                    print("Avant : \(coucheDeFond.filters)")
                     coucheDeFond.filters?.removeAll(where: { filtre in
-                        String(describing: filtre) != "gaussianBlur"
+                        String(describing: filtre) != "gaussianBlur" &&
+                        String(describing: filtre) != "colorBrightness" &&
+                        String(describing: filtre) != "colorSaturate" //&&
+                        //String(describing: filtre) != "luminanceCurveMap"
                     })
+                    print("Après : \(coucheDeFond.filters)")
                 }
             }
         }
     }
 }
+

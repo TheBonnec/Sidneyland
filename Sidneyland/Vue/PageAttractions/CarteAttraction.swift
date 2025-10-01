@@ -13,12 +13,13 @@ struct CarteAttraction: View {
     
     var namespace: Namespace.ID
     var attraction: Attraction
+    var largeurLibre: Bool = false
     
     // Dimensions
-    let écartTexteImage: CGFloat = 12
+    let écartementIndicateurBord: CGFloat = 8.0
     let décallageFavoris: CGFloat = 4.25
-    let dimensionsFavoris: CGFloat = 34     // C'est rond parfait
-    let dimensionsImage: CGSize = .init(width: 150, height: 225)
+    let dimensionsFavoris: CGFloat = 34     // C'est un rond parfait
+    let dimensionsImage: CGSize = .init(width: 150, height: 240)
     let arrondiImage: CGFloat = 24
     let borduresHorizontalesVueTitre: CGFloat = 4
     
@@ -27,21 +28,17 @@ struct CarteAttraction: View {
     // MARK: Vue
     
     var body: some View {
-        VStack(alignment: .leading, spacing: écartTexteImage) {
-            // Zone Image
-            ZStack(alignment: .topTrailing) {
-                vueImage
-                
-                if attraction.estFavorite {
-                    badgeFavoris
-                        .offset(x: décallageFavoris, y: -décallageFavoris)
-                }
-            }
-            .frame(height: dimensionsImage.height)
+        ZStack(alignment: .topTrailing) {
+            vueImage
             
-            //vueTitre
+            if attraction.estFavorite {
+                badgeFavoris
+                    .offset(x: décallageFavoris, y: -décallageFavoris)
+            }
         }
-        .frame(width: dimensionsImage.width)
+        .frame(height: dimensionsImage.height)
+        .frame(maxWidth: largeurLibre ? .infinity : dimensionsImage.width)
+        .frame(minWidth: dimensionsImage.width)
     }
     
     
@@ -51,11 +48,11 @@ struct CarteAttraction: View {
                 Spacer()
                 
                 vueTitre
-                    .padding([.horizontal, .bottom], 14)
-                    .padding(.bottom, 2)
-                    .padding(.top, 12)
+                    .padding(.horizontal, 14)
+                    .padding(.bottom, écartementIndicateurBord)
+                    .padding(.top, 20)
                     .background {
-                        FlouTransparent(tailleFlou: 16)
+                        VariableBlurView(maxBlurRadius: 16)
                     }
             }
             .background {
@@ -66,7 +63,6 @@ struct CarteAttraction: View {
                     .clipped()
             }
             .bordureArrondie(rayon: arrondiImage)
-            .glassEffect(.regular.interactive(), in: .rect(cornerRadius: arrondiImage, style: .continuous))
         }
     }
     
@@ -81,20 +77,17 @@ struct CarteAttraction: View {
     
     
     var vueTitre: some View {
-        HStack(spacing: 12) {
-            // Nom Attraction
+        VStack(spacing: écartementIndicateurBord) {
             Text(attraction.nomCourt ?? attraction.nom)
                 .font(.descriptionImportante)
                 .foregroundStyle(Color.white)
                 .lineLimit(2)
-                .multilineTextAlignment(.leading)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(minHeight: UIFont(name: Polices.MontserratSemiBold, size: 13)!.lineHeight * 2)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
                 .truncationMode(.tail)
             
             IndicateurAttente(tempsAttente: attraction.informations?.tempsAttente ?? 0, fonctionnement: attraction.informations?.fonctionnement ?? .inconnu)
         }
-        //.padding(.horizontal, borduresHorizontalesVueTitre)
     }
 }
 

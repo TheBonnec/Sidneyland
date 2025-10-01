@@ -11,6 +11,8 @@ struct IndicateurAttente: View {
     
     // MARK: Attributs
     
+    // TODO: Mettre le temps d'attente en paramètre de .marche(Int)
+    // TODO: Mettre la fonction de couleur de FonctionnementAttraction
     var tempsAttente: Int
     var fonctionnement: FonctionnementAttraction
     
@@ -25,27 +27,28 @@ struct IndicateurAttente: View {
     var body: some View {
         Group {
             if fonctionnement == .enMarche {
-                vueChiffre
-                    //.padding(.horizontal, 16)
+                HStack(alignment: .firstTextBaseline, spacing: 3) {
+                    vueChiffre
+                }
             } else {
                 // Vue symbole
-                Image(systemName: symbole())
-                    //.frame(width: 48)
+                Image(systemName: fonctionnement.image)
+                    .font(.descriptionImportante)
             }
         }
-        //.frame(height: 48)
-        //.foregroundStyle(Color.white)
-        //.background(couleurAccent())
-        .foregroundStyle(couleurAccent())
-        //.bordureArrondie(rayon: 1000)
+        .foregroundStyle(couleurAccent)
+        .padding(.vertical, 5)
+        .padding(.horizontal, 12)
+        .frame(minHeight: 28.4)
+        .background(.black.opacity(0.5).blendMode(.overlay))
+        .bordureArrondie(rayon: 1000)
     }
     
     
     var vueChiffre: some View {
-        //HStack(alignment: .firstTextBaseline, spacing: 4) {
-        VStack(spacing: 0) {
+        Group {
             Text("\(tempsAttente)")
-                .font(.information)
+                .font(.corpsImportant)
             
             Text("min")
                 .font(.note)
@@ -56,9 +59,9 @@ struct IndicateurAttente: View {
     
     
     
-    // MARK: Méthode
+    // MARK: Propriétés Calculées
     
-    func couleurAccent() -> Color {
+    var couleurAccent: Color {
         if fonctionnement == .enMarche {
             if tempsAttente <= 15 {
                 return .green
@@ -72,17 +75,6 @@ struct IndicateurAttente: View {
         
         return .white.opacity(0.64)
     }
-    
-    
-    func symbole() -> String {
-        return switch fonctionnement {
-        case .enMarche: ""
-        case .enPanne: "exclamationmark.triangle.fill"
-        case .fermée: "xmark.octagon.fill"
-        case .enTravaux: "wrench.and.screwdriver.fill"
-        case .inconnu: "questionmark"
-        }
-    }
 }
 
 
@@ -90,8 +82,17 @@ struct IndicateurAttente: View {
 
 
 #Preview {
-    IndicateurAttente(
-        tempsAttente: 15,
-        fonctionnement: .enMarche
-    )
+    FondPrincipal {
+        VStack {
+            IndicateurAttente( tempsAttente: 15, fonctionnement: .enMarche)
+            IndicateurAttente( tempsAttente: 30, fonctionnement: .enMarche)
+            IndicateurAttente( tempsAttente: 45, fonctionnement: .enMarche)
+            IndicateurAttente( tempsAttente: 75, fonctionnement: .enMarche)
+            
+            IndicateurAttente( tempsAttente: 15, fonctionnement: .enPanne)
+            IndicateurAttente( tempsAttente: 15, fonctionnement: .fermée)
+            IndicateurAttente( tempsAttente: 15, fonctionnement: .enTravaux)
+            IndicateurAttente( tempsAttente: 15, fonctionnement: .inconnu)
+        }
+    }
 }

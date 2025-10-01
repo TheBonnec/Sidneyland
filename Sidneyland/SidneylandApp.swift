@@ -24,6 +24,9 @@ struct SidneylandApp: App {
                 .environmentObject(appVM)
                 .environmentObject(détailAttractionVM)
                 .environmentObject(sélectionOnglet)
+                .onAppear {
+                    print("Application ouverte")
+                }
         }
     }
 }

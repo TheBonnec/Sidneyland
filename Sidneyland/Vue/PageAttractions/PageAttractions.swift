@@ -22,7 +22,7 @@ struct PageAttractions: View {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithDefaultBackground()
         appearance.titleTextAttributes = [
-            .font: UIFont(name: "MontserratRoman-Bold", size: 15)!,
+            .font: UIFont(name: "MontserratRoman-Bold", size: 18)!,
             .foregroundColor: UIColor.white
         ]
         appearance.largeTitleTextAttributes = [
@@ -62,7 +62,6 @@ struct PageAttractions: View {
                         }
                     }
                 }
-                
             }
         }
     }

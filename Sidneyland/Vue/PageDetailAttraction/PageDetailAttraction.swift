@@ -106,7 +106,8 @@ struct PageDetailAttraction: View {
     
     var contenu: some View {
         ZStack {
-            FlouTransparent(tailleFlou: 32)
+            //FlouTransparent(tailleFlou: 32)
+            VariableBlurView(maxBlurRadius: 32)
                 .ignoresSafeArea()
             
             VStack(spacing: 24) {
