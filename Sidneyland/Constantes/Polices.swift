@@ -21,16 +21,20 @@ extension Font {
         .custom(Polices.MontserratBold, size: 28)
     }
     
+    static var informationImportante: Font {
+        .custom(Polices.MontserratBold, size: 24)
+    }
+    
     static var titreSection: Font {
+        .custom(Polices.MontserratSemiBold, size: 18)
+    }
+    
+    static var information: Font {
         .custom(Polices.MontserratSemiBold, size: 18)
     }
     
     static var sousTitre: Font {
         .custom(Polices.MontserratSemiBold, size: 15)
-    }
-    
-    static var information: Font {
-        .custom(Polices.MontserratSemiBold, size: 18)
     }
     
     static var corpsImportant: Font {

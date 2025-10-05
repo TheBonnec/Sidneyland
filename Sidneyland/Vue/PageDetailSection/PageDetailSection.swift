@@ -57,15 +57,6 @@ struct PageDetailSection: View {
             }
             .navigationTitle(titre)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        print("")
-                    } label: {
-                        Image(systemName: "chevron.left")
-                    }
-                }
-            }
-            .toolbar {
                 ToolbarSpacer(.flexible, placement: .bottomBar)
                 
                 ToolbarItem(placement: .bottomBar) {

@@ -63,6 +63,7 @@
 		3DED22502E89B2F600659AE1 /* CarteAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DED224F2E89B2F600659AE1 /* CarteAttraction.swift */; };
 		3DED22582E89EA8E00659AE1 /* SectionAttractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DED22572E89EA8E00659AE1 /* SectionAttractions.swift */; };
 		3DED225A2E89ECA300659AE1 /* FondPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DED22592E89ECA300659AE1 /* FondPrincipal.swift */; };
+		3DEF2D7E2E930EA500FB11C8 /* RangAttraction2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF2D7D2E930EA500FB11C8 /* RangAttraction2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		3DED224F2E89B2F600659AE1 /* CarteAttraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteAttraction.swift; sourceTree = "<group>"; };
 		3DED22572E89EA8E00659AE1 /* SectionAttractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionAttractions.swift; sourceTree = "<group>"; };
 		3DED22592E89ECA300659AE1 /* FondPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FondPrincipal.swift; sourceTree = "<group>"; };
+		3DEF2D7D2E930EA500FB11C8 /* RangAttraction2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangAttraction2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -392,6 +394,7 @@
 				3D6AEB862E8AEB05004D864C /* PageAttractions.swift */,
 				3DED22572E89EA8E00659AE1 /* SectionAttractions.swift */,
 				3DED224F2E89B2F600659AE1 /* CarteAttraction.swift */,
+				3DEF2D7D2E930EA500FB11C8 /* RangAttraction2.swift */,
 				3D8BE19E2CEC1E0600F88A2D /* IndicateurAttente.swift */,
 				3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */,
 				3D8BE1B52CECD34100F88A2D /* PagePrincipale.swift */,
@@ -584,6 +587,7 @@
 				3DB753442CE8E40300F68412 /* Attraction.swift in Sources */,
 				3DB753452CE8E40300F68412 /* NomParc.swift in Sources */,
 				3D8BE1992CEC09E600F88A2D /* AppVM.swift in Sources */,
+				3DEF2D7E2E930EA500FB11C8 /* RangAttraction2.swift in Sources */,
 				3DEB26032CEEBECA00639F80 /* Date+Extensions.swift in Sources */,
 				3DB753462CE8E40300F68412 /* RegistreAttractions.swift in Sources */,
 				3DB753472CE8E40300F68412 /* NomUnivers.swift in Sources */,

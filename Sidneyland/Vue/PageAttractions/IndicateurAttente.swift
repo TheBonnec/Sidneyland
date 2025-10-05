@@ -40,7 +40,8 @@ struct IndicateurAttente: View {
         .padding(.vertical, 5)
         .padding(.horizontal, 12)
         .frame(minHeight: 28.4)
-        .background(.black.opacity(0.5).blendMode(.overlay))
+        .background(couleurAccent.opacity(0.05))
+        .background(.black.opacity(0.5).blendMode(.hardLight))
         .bordureArrondie(rayon: 1000)
     }
     
@@ -64,13 +65,13 @@ struct IndicateurAttente: View {
     var couleurAccent: Color {
         if fonctionnement == .enMarche {
             if tempsAttente <= 15 {
-                return .green
+                return .vert
             } else if tempsAttente <= 30 {
-                return .orange
+                return .jaune
             } else if tempsAttente <= 60 {
-                return .red
+                return .mandarine
             }
-            return .purple
+            return .rouge
         }
         
         return .white.opacity(0.64)

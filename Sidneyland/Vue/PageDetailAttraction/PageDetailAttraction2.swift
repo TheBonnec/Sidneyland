@@ -14,7 +14,7 @@ struct PageDetailAttraction2: View {
     var namespace: Namespace.ID
     var attraction: Attraction
     
-    @State private var sélection: PresentationDetent = .height(120)
+    @State private var sélection: PresentationDetent = .height(200)
     
     
     
@@ -24,9 +24,9 @@ struct PageDetailAttraction2: View {
         vueImage
             .sheet(isPresented: .constant(true)) {
                 vueFeuille
-                    .presentationDetents([.height(120), .medium, .large], selection: $sélection)
+                    .presentationDetents([.height(200), .large], selection: $sélection)
                     .presentationDragIndicator(.visible)
-                    .presentationBackgroundInteraction(.enabled(upThrough: .medium))
+                    .presentationBackgroundInteraction(.enabled(upThrough: .height(200)))
             }
     }
     
@@ -41,9 +41,22 @@ struct PageDetailAttraction2: View {
     
     
     var vueFeuille: some View {
-        VStack {
-            Text(attraction.nom)
-                .font(.titreSection)
+        NavigationView {
+            ScrollView {
+                FeuilleDetailAttraction(attraction: attraction)
+            }
+            .navigationTitle(attraction.nom)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    Button {
+                        print("")
+                    } label: {
+                        Image(systemName: "chevron.left")
+                    }
+
+                }
+            }
         }
     }
 }
@@ -67,7 +80,7 @@ struct PageDetailAttraction2: View {
     
     attraction.modifierInformation(InformationsAttraction(
         tempsAttente: 15,
-        tempsSingleRider: nil,
+        tempsSingleRider: 5,
         horaireFermeture: Date(),
         fonctionnement: .enMarche
     ))

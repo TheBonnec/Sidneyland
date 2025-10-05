@@ -16,10 +16,10 @@ class Attraction: Identifiable {
     let nom: String
     let nomCourt: String?
     let image: String
-    let couleur: String?
+    let couleur: String?        // TODO: Supprimer couleur
     let parc: NomParc
     let univers: NomUnivers
-    var informations: InformationsAttraction?
+    var informations: InformationsAttraction?       // TODO: Rennomer informations
     let positionCarte: UnitPoint?
     let importance: Int?
     var estFavorite: Bool = false

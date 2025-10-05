@@ -17,34 +17,37 @@ struct SectionAttractions: View {
     var conteneurisé: Bool
     var attractions: [Attraction]
     var nbRangs: Int
+    var enRangs: Bool
     
-    private let rangs = [
-        GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top),
-        GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top),
-        GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top),
-        GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top),
-        GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top)
-    ]
+    private let rangs = Array(
+        repeating: GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top),
+        count: 8
+    )
     
     
     
     // MARK: Init
     
-    init(namespace: Namespace.ID, symbole: String? = nil, titre: String, conteneurisé: Bool = false, attractions: [Attraction], nbRangs: Int? = nil) {
+    init(namespace: Namespace.ID, symbole: String? = nil, titre: String, conteneurisé: Bool = false, attractions: [Attraction], nbRangs: Int? = nil, enRangs: Bool = false) {
         self.namespace = namespace
         self.symbole = symbole
         self.titre = titre
         self.conteneurisé = conteneurisé
         self.attractions = attractions
+        self.enRangs = enRangs
         
         if let nbRangs, nbRangs > 0 {
-            if nbRangs <= 5 {
+            if nbRangs <= 2 {
                 self.nbRangs = nbRangs
             } else {
-                self.nbRangs = 5
+                self.nbRangs = 2
             }
         } else {
             self.nbRangs = 1
+        }
+        
+        if enRangs {
+            self.nbRangs *= 4
         }
     }
     
@@ -54,8 +57,13 @@ struct SectionAttractions: View {
     
     var body: some View {
         VStack(spacing: 16 + 4.25) { // largeur qui dépasse du coeur
-            vueTitre
-            vueAttractions
+            NavigationLink {
+                PageDetailSection(namespace: namespace, titre: titre, attractions: attractions)
+            } label: {
+                vueTitre
+            }
+            
+            vueCartesAttraction
                 .styleConteneurisé(conteneurisé)
         }
     }
@@ -85,11 +93,15 @@ struct SectionAttractions: View {
     }
     
     
-    var vueAttractions: some View {
+    var vueCartesAttraction: some View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: Array(rangs[0..<nbRangs]), alignment: .top, spacing: 20) {
                 ForEach(attractions, id: \.id) { attraction in
-                    CarteAttraction(namespace: namespace, attraction: attraction)
+                    if enRangs {
+                        RangAttraction2(namespace: namespace, attraction: attraction)
+                    } else {
+                        CarteAttraction(namespace: namespace, attraction: attraction)
+                    }
                 }
             }
             .scrollTargetLayout()
@@ -142,10 +154,12 @@ fileprivate extension View {
     }
     
     return FondPrincipal(image: "Chateau") {
-        VStack(spacing: 32) {
-            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Frontierland", attractions: attractions)
-            
-            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Frontierland", conteneurisé: true, attractions: attractions)
+        ScrollView {
+            VStack(spacing: 32) {
+                SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Frontierland", attractions: attractions, enRangs: true)
+                
+                SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Frontierland", conteneurisé: true, attractions: attractions)
+            }
         }
     }
 }
