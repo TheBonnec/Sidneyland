@@ -69,8 +69,13 @@ struct PageAttractions: View {
     
     var contenu: some View {
         LazyVStack(spacing: 42) {
-            SectionAttractions(namespace: namespace, symbole: "map.fill", titre: "Autour de moi", conteneurisé: true, attractions: appVM.attractions.filter{$0.univers == .adventureland})
-            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Favoris", attractions: appVM.attractions.filter{$0.estFavorite == true}, nbRangs: 2, enRangs: true, détailAvecFavoris: false)
+            SectionAttractions(namespace: namespace, symbole: "map.fill", titre: "Autour de moi", attractions: appVM.attractions.filter{$0.univers == .adventureland})
+                .conteneuriserSectionAttractions(true)
+            
+            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Favoris", attractions: appVM.attractions.filter{$0.estFavorite == true})
+                .style(.rangs)
+                .nbRangsSectionAttractions(2)
+                .pageDetailSectionAvecFavoris(false)    // Celui-ci semble n'avoir aucun effet
             
             cartesGroupes
             

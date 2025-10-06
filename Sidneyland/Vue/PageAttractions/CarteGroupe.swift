@@ -22,7 +22,8 @@ struct CarteGroupe: View {
     
     var body: some View {
         NavigationLink {
-            PageDetailSection(namespace: namespace, titre: titre, image: image, attractions: attractions)
+            PageDetailSection(namespace: namespace, titre: titre, attractions: attractions)
+                .imagePageDetailSection(image)
         } label: {
             illustration
         }

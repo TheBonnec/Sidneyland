@@ -11,21 +11,20 @@ struct PageDetailSection: View {
     
     // MARK: Attributs
     
+    @Environment(\.pageDetailSectionAvecFavoris) var avecFavoris
+    @Environment(\.imagePageDetailSection) var image
+    
     var namespace: Namespace.ID
     var titre: String
-    var image: String
-    var avecFavoris: Bool
     var attractions: [Attraction]
     
     
     
     // MARK: Init
     
-    init(namespace: Namespace.ID, titre: String, image: String = "Chateau", avecFavoris: Bool = true, attractions: [Attraction]) {
+    init(namespace: Namespace.ID, titre: String, attractions: [Attraction]) {
         self.namespace = namespace
         self.titre = titre
-        self.image = image
-        self.avecFavoris = avecFavoris
         self.attractions = attractions
         
         
@@ -79,22 +78,18 @@ struct PageDetailSection: View {
                 }
             }
         }
+        .onAppear {
+            print("onAppear - page détail : \(avecFavoris)")
+        }
+        .onChange(of: avecFavoris) { oldValue, newValue in
+            print("onChange - page détail : \(newValue)")
+        }
     }
     
     
     var listeFavoris: some View {
-        ScrollView(.horizontal) {
-            LazyHStack(spacing: 20) {
-                ForEach(attractions.filter { $0.estFavorite == true }, id: \.id) { attraction in
-                    CarteAttraction(namespace: namespace, attraction: attraction)
-                }
-            }
-            .scrollTargetLayout()
-        }
-        .scrollTargetBehavior(.viewAligned)
-        .scrollIndicators(.hidden)
-        .scrollClipDisabled()
-        .padding()
+        SectionAttractions(namespace: namespace, attractions: attractions.filter{ $0.estFavorite })
+            .afficherTitreSectionAttractions(false)
     }
     
     
@@ -125,5 +120,6 @@ struct PageDetailSection: View {
         ))
     }
     
-    return PageDetailSection(namespace: namespace, titre: "Favoris", image: "BTM", attractions: attractions)
+    return PageDetailSection(namespace: namespace, titre: "Favoris", attractions: attractions)
+        .imagePageDetailSection("BTM")
 }
