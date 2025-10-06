@@ -17,4 +17,14 @@ extension View {
             self
         }
     }
+    
+    
+    @ViewBuilder
+    func `if`<Content: View, ElseContent: View>(_ condition: Bool, transform: (Self) -> Content, elseTransform: (Self) -> ElseContent) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            elseTransform(self)
+        }
+    }
 }

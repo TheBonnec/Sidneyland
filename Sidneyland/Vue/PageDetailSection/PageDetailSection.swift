@@ -13,19 +13,19 @@ struct PageDetailSection: View {
     
     var namespace: Namespace.ID
     var titre: String
+    var image: String
+    var avecFavoris: Bool
     var attractions: [Attraction]
-    
-    private let columns = [
-        GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 20, alignment: .top)
-    ]
     
     
     
     // MARK: Init
     
-    init(namespace: Namespace.ID, titre: String, attractions: [Attraction]) {
+    init(namespace: Namespace.ID, titre: String, image: String = "Chateau", avecFavoris: Bool = true, attractions: [Attraction]) {
         self.namespace = namespace
         self.titre = titre
+        self.image = image
+        self.avecFavoris = avecFavoris
         self.attractions = attractions
         
         
@@ -50,9 +50,16 @@ struct PageDetailSection: View {
     
     var body: some View {
         NavigationStack {
-            FondPrincipal {
+            FondPrincipal(image: image) {
                 ScrollView {
-                    contenu
+                    VStack(spacing: 16) {
+                        if avecFavoris {
+                            listeFavoris
+                        }
+                        listeAttractions
+                    }
+                    .padding(.top, 16)
+                    .padding(.bottom, 8)
                 }
             }
             .navigationTitle(titre)
@@ -75,15 +82,29 @@ struct PageDetailSection: View {
     }
     
     
-    var contenu: some View {
-        LazyVGrid(columns: columns, spacing: 20) {
+    var listeFavoris: some View {
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 20) {
+                ForEach(attractions.filter { $0.estFavorite == true }, id: \.id) { attraction in
+                    CarteAttraction(namespace: namespace, attraction: attraction)
+                }
+            }
+            .scrollTargetLayout()
+        }
+        .scrollTargetBehavior(.viewAligned)
+        .scrollIndicators(.hidden)
+        .scrollClipDisabled()
+        .padding()
+    }
+    
+    
+    var listeAttractions: some View {
+        LazyVStack(spacing: 16) {
             ForEach(attractions, id: \.id) { attraction in
-                CarteAttraction(namespace: namespace, attraction: attraction, largeurLibre: true)
+                RangAttraction2(namespace: namespace, attraction: attraction)
             }
         }
         .padding()
-        .padding(.top, 24)
-        .padding(.bottom, 8)
     }
 }
 
@@ -104,7 +125,5 @@ struct PageDetailSection: View {
         ))
     }
     
-    return FondPrincipal {
-        PageDetailSection(namespace: namespace, titre: "Favoris", attractions: attractions)
-    }
+    return PageDetailSection(namespace: namespace, titre: "Favoris", image: "BTM", attractions: attractions)
 }

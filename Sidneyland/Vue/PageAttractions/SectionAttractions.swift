@@ -18,23 +18,30 @@ struct SectionAttractions: View {
     var attractions: [Attraction]
     var nbRangs: Int
     var enRangs: Bool
+    var détailAvecFavoris: Bool = true
     
     private let rangs = Array(
         repeating: GridItem(.adaptive(minimum: 180, maximum: 300), spacing: 20, alignment: .top),
-        count: 8
+        count: 2
+    )
+    
+    private let colonnes = Array(
+        repeating: GridItem(spacing: 16, alignment: .top),
+        count: 6
     )
     
     
     
     // MARK: Init
     
-    init(namespace: Namespace.ID, symbole: String? = nil, titre: String, conteneurisé: Bool = false, attractions: [Attraction], nbRangs: Int? = nil, enRangs: Bool = false) {
+    init(namespace: Namespace.ID, symbole: String? = nil, titre: String, conteneurisé: Bool = false, attractions: [Attraction], nbRangs: Int? = nil, enRangs: Bool = false, détailAvecFavoris: Bool = true) {
         self.namespace = namespace
         self.symbole = symbole
         self.titre = titre
         self.conteneurisé = conteneurisé
         self.attractions = attractions
         self.enRangs = enRangs
+        self.détailAvecFavoris = détailAvecFavoris
         
         if let nbRangs, nbRangs > 0 {
             if nbRangs <= 2 {
@@ -47,7 +54,7 @@ struct SectionAttractions: View {
         }
         
         if enRangs {
-            self.nbRangs *= 4
+            self.nbRangs *= 3
         }
     }
     
@@ -58,13 +65,17 @@ struct SectionAttractions: View {
     var body: some View {
         VStack(spacing: 16 + 4.25) { // largeur qui dépasse du coeur
             NavigationLink {
-                PageDetailSection(namespace: namespace, titre: titre, attractions: attractions)
+                PageDetailSection(namespace: namespace, titre: titre, avecFavoris: détailAvecFavoris, attractions: attractions)
             } label: {
                 vueTitre
             }
             
-            vueCartesAttraction
-                .styleConteneurisé(conteneurisé)
+            if enRangs {
+                vueRangsAttraction
+            } else {
+                vueCartesAttraction
+                    .styleConteneurisé(conteneurisé)
+            }
         }
     }
     
@@ -97,16 +108,29 @@ struct SectionAttractions: View {
         ScrollView(.horizontal) {
             LazyHGrid(rows: Array(rangs[0..<nbRangs]), alignment: .top, spacing: 20) {
                 ForEach(attractions, id: \.id) { attraction in
-                    if enRangs {
-                        RangAttraction2(namespace: namespace, attraction: attraction)
-                    } else {
-                        CarteAttraction(namespace: namespace, attraction: attraction)
-                    }
+                    CarteAttraction(namespace: namespace, attraction: attraction)
                 }
             }
             .scrollTargetLayout()
             .padding(.horizontal, conteneurisé ? 12 : 16)
             .fixedSize(horizontal: false, vertical: true)
+        }
+        .scrollTargetBehavior(.viewAligned)
+        .scrollIndicators(.hidden)
+        .scrollClipDisabled()
+    }
+    
+    
+    var vueRangsAttraction: some View {
+        ScrollView(.horizontal) {
+            LazyHGrid(rows: Array(colonnes[0..<nbRangs]), alignment: .center, spacing: 16) {
+                ForEach(attractions, id: \.id) { attraction in
+                    RangAttraction2(namespace: namespace, attraction: attraction)
+                }
+                .padding(.horizontal, 16)
+                .containerRelativeFrame(.horizontal, count: 1, spacing: 0, alignment: .center)
+            }
+            .scrollTargetLayout()
         }
         .scrollTargetBehavior(.viewAligned)
         .scrollIndicators(.hidden)
@@ -123,7 +147,6 @@ fileprivate extension View {
             if condition {
                 self
                     .padding(.vertical, 12)
-                    //.padding(.top, 12)
                     .background(Color.white.opacity(0.16))
                     .bordureArrondie(rayon: 24 + 12)
                     .clipped()

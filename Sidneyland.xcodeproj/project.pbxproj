@@ -18,6 +18,7 @@
 		3D1589172CF922CF0071CE2F /* SelectionOnglet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589162CF922CF0071CE2F /* SelectionOnglet.swift */; };
 		3D1589192CF929440071CE2F /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1589182CF929440071CE2F /* LazyView.swift */; };
 		3D15891B2CF940790071CE2F /* TissuCarte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15891A2CF940790071CE2F /* TissuCarte.swift */; };
+		3D15E7F62E9440A800616BAC /* CarteGroupe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D15E7F52E9440A800616BAC /* CarteGroupe.swift */; };
 		3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D36100E2CE9282000FA9B9B /* InformationsAttraction.swift */; };
 		3D3610112CE933DC00FA9B9B /* FonctionnementAttraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610102CE933DC00FA9B9B /* FonctionnementAttraction.swift */; };
 		3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3610132CE9368600FA9B9B /* EnumsAPI.swift */; };
@@ -95,6 +96,7 @@
 		3D1589162CF922CF0071CE2F /* SelectionOnglet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionOnglet.swift; sourceTree = "<group>"; };
 		3D1589182CF929440071CE2F /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		3D15891A2CF940790071CE2F /* TissuCarte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TissuCarte.swift; sourceTree = "<group>"; };
+		3D15E7F52E9440A800616BAC /* CarteGroupe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarteGroupe.swift; sourceTree = "<group>"; };
 		3D25D6BC2C965D08003B2A5F /* Sidneyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sidneyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6CD2C965D09003B2A5F /* SidneylandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25D6D72C965D09003B2A5F /* SidneylandUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SidneylandUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -395,6 +397,7 @@
 				3DED22572E89EA8E00659AE1 /* SectionAttractions.swift */,
 				3DED224F2E89B2F600659AE1 /* CarteAttraction.swift */,
 				3DEF2D7D2E930EA500FB11C8 /* RangAttraction2.swift */,
+				3D15E7F52E9440A800616BAC /* CarteGroupe.swift */,
 				3D8BE19E2CEC1E0600F88A2D /* IndicateurAttente.swift */,
 				3D8BE1BC2CECE41100F88A2D /* CartoucheGlossaire.swift */,
 				3D8BE1B52CECD34100F88A2D /* PagePrincipale.swift */,
@@ -608,6 +611,7 @@
 				3D15890E2CF914590071CE2F /* Array+Extensions.swift in Sources */,
 				3D8BE19F2CEC1E0600F88A2D /* IndicateurAttente.swift in Sources */,
 				3D6AEB872E8AEB05004D864C /* PageAttractions.swift in Sources */,
+				3D15E7F62E9440A800616BAC /* CarteGroupe.swift in Sources */,
 				3D8BE1B82CECD55A00F88A2D /* DegradeHaut.swift in Sources */,
 				3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */,
 				3D8BE1B22CECCFED00F88A2D /* PatronPagePrincipale.swift in Sources */,

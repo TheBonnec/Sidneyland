@@ -12,6 +12,7 @@ struct FondPrincipal<Contenu: View>: View {
     // MARK: Attributs
     
     @Environment(\.colorScheme) var modeLumière
+    
     let image: String
     let contenu: Contenu
     
@@ -29,22 +30,24 @@ struct FondPrincipal<Contenu: View>: View {
     // MARK: Vue
     
     var body: some View {
-        ZStack {
-            Image(image)
-                .resizable()
-                .scaledToFill()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .ignoresSafeArea()
-            
-            Rectangle()
-                .fill(.thinMaterial)
-                .ignoresSafeArea()
-            
-            couleurFond
-                .ignoresSafeArea()
-            
-            contenu
-        }
+        contenu
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                ZStack {
+                    Image(image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .ignoresSafeArea()
+                    
+                    Rectangle()
+                        .fill(.thinMaterial)
+                        .ignoresSafeArea()
+                    
+                    couleurFond
+                        .ignoresSafeArea()
+                }
+            }
     }
     
     
@@ -66,5 +69,8 @@ struct FondPrincipal<Contenu: View>: View {
 #Preview {
     FondPrincipal(image: "Chateau") {
         Text("Bonjour")
+            .font(.titreSection)
+            .foregroundStyle(Color.white)
+            .padding()
     }
 }

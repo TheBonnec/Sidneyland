@@ -26,8 +26,10 @@ struct RangAttraction2: View {
             HStack(spacing: 12) {
                 Text(attraction.nomCourt ?? attraction.nom)
                     .font(.corpsImportant)
+                    //.frame(width: 100)
                     .lineLimit(2)
                     .truncationMode(.tail)
+                    .allowsTightening(true)
                 
                 if attraction.estFavorite {
                     Image(systemName: "heart.fill")

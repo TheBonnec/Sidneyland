@@ -44,7 +44,6 @@ struct PageAttractions: View {
                 ScrollView {
                     contenu
                 }
-                .scrollTargetBehavior(.viewAligned)
                 .scrollIndicators(.hidden)
             }
             .navigationTitle("Disneyland")
@@ -71,19 +70,38 @@ struct PageAttractions: View {
     var contenu: some View {
         LazyVStack(spacing: 42) {
             SectionAttractions(namespace: namespace, symbole: "map.fill", titre: "Autour de moi", conteneurisé: true, attractions: appVM.attractions.filter{$0.univers == .adventureland})
-            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Favoris", attractions: appVM.attractions.filter{$0.estFavorite == true}, nbRangs: 2)
+            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Favoris", attractions: appVM.attractions.filter{$0.estFavorite == true}, nbRangs: 2, enRangs: true, détailAvecFavoris: false)
             
-            SectionAttractions(namespace: namespace, titre: "Frontierland", attractions: appVM.attractions.filter{$0.univers == .frontierland})
-            SectionAttractions(namespace: namespace, titre: "Adventureland", attractions: appVM.attractions.filter{$0.univers == .adventureland})
-            SectionAttractions(namespace: namespace, titre: "Discoveryland", attractions: appVM.attractions.filter{$0.univers == .discoveryland})
-            SectionAttractions(namespace: namespace, titre: "Fantasyland", attractions: appVM.attractions.filter{$0.univers == .fantasyland})
-            SectionAttractions(namespace: namespace, titre: "Disney Studio", attractions: appVM.attractions.filter{$0.parc == .studio})
+            cartesGroupes
             
             CartoucheGlossaire()
                 .padding()
         }
         .padding(.top, 32)
-        .scrollTargetLayout()
+    }
+    
+    
+    var cartesGroupes: some View {
+        LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], alignment: .center, spacing: 16) {
+            CarteGroupe(namespace: namespace, titre: "Frontierland", image: "BTM",
+                        attractions: appVM.attractions.filter{$0.univers == .frontierland})
+            
+            CarteGroupe(namespace: namespace, titre: "Adventureland", image: "Cabane Robinson",
+                        attractions: appVM.attractions.filter{$0.univers == .adventureland})
+            
+            CarteGroupe(namespace: namespace, titre: "Discoveryland", image: "Space Mountain",
+                        attractions: appVM.attractions.filter{$0.univers == .discoveryland})
+            
+            CarteGroupe(namespace: namespace, titre: "Fantasyland", image: "Maison Poupees",
+                        attractions: appVM.attractions.filter{$0.univers == .fantasyland})
+            
+            CarteGroupe(namespace: namespace, titre: "Disney Studio", image: "HTH",
+                        attractions: appVM.attractions.filter{$0.parc == .studio})
+            
+            CarteGroupe(namespace: namespace, titre: "Toutes les attractions", image: "Chateau",
+                        attractions: appVM.attractions)
+        }
+        .padding()
     }
 }
 
