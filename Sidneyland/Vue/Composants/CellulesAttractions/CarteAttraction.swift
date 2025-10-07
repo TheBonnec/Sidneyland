@@ -115,7 +115,7 @@ struct CarteAttraction: View {
         fonctionnement: .enMarche
     ))
     
-    return FondPrincipal {
+    return FondImageFloue {
         CarteAttraction(namespace: animationRangAttraction, attraction: attraction)
     }
 }

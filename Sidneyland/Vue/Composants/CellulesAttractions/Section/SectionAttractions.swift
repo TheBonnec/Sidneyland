@@ -64,7 +64,7 @@ extension SectionAttractions where Style == StyleSectionCartesAttractions {
         ))
     }
     
-    return FondPrincipal(image: "Chateau") {
+    return FondImageFloue(image: "Chateau") {
         ScrollView {
             VStack(spacing: 32) {
                 SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Frontierland", attractions: attractions)

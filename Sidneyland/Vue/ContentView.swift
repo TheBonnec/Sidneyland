@@ -18,6 +18,8 @@ struct ContentView: View {
     @EnvironmentObject var détailAttractionVM: DetailAttractionVM
     @EnvironmentObject var sélectionOnglet: SelectionOnglet
     
+    @State var onglet: Onglet = .pagePrincipale
+    
     
     
     // MARK: Init
@@ -31,7 +33,20 @@ struct ContentView: View {
     // MARK: Vue
     
     var body: some View {
-        PageAttractions()
+        Group {
+            if onglet == .pagePrincipale {
+                PageAttractions()
+                    .transition(.slide)
+            } else if onglet == .carte {
+                PageCarte()
+                    .transition(.slide)
+            }
+        }
+        .actionChangerOnglet { onglet in
+            self.onglet = onglet
+        }
+        
+        
         /*
         GeometryReader { géometrie in
             ZStack {

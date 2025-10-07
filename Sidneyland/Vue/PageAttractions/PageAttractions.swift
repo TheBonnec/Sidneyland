@@ -12,6 +12,7 @@ struct PageAttractions: View {
     // MARK: Attributs
     
     @Namespace var namespace: Namespace.ID
+    @Environment(\.changerOnglet) var changerOnglet
     @EnvironmentObject var appVM: AppVM
     
     
@@ -40,7 +41,7 @@ struct PageAttractions: View {
     
     var body: some View {
         NavigationStack {
-            FondPrincipal(image: "Chateau") {
+            FondImageFloue(image: "Chateau") {
                 ScrollView {
                     contenu
                 }
@@ -52,7 +53,7 @@ struct PageAttractions: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        print("")
+                        changerOnglet(.carte)
                     } label: {
                         HStack {
                             Image(systemName: "map")
@@ -69,6 +70,9 @@ struct PageAttractions: View {
     
     var contenu: some View {
         LazyVStack(spacing: 42) {
+            SectionCompteARebours()
+                .padding(.horizontal, 8)
+            
             SectionAttractions(namespace: namespace, symbole: "map.fill", titre: "Autour de moi", attractions: appVM.attractions.filter{$0.univers == .adventureland})
                 .conteneuriserSectionAttractions(true)
             
@@ -105,6 +109,7 @@ struct PageAttractions: View {
             
             CarteGroupe(namespace: namespace, titre: "Toutes les attractions", image: "Chateau",
                         attractions: appVM.attractions)
+            .pageDetailSectionAvecFavoris(false)
         }
         .padding()
     }

@@ -49,7 +49,7 @@ struct TitreSectionAttractions: View {
 
 
 #Preview {
-    FondPrincipal {
+    FondImageFloue {
         TitreSectionAttractions(symbole: "heart.fill", titre: "Favoris")
     }
 }

@@ -54,7 +54,7 @@ struct CartoucheGlossaire: View {
 
 
 #Preview {
-    FondPrincipal(image: "Chateau") {
+    FondImageFloue(image: "Chateau") {
         CartoucheGlossaire()
     }
 }

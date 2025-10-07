@@ -49,7 +49,7 @@ struct PageDetailSection: View {
     
     var body: some View {
         NavigationStack {
-            FondPrincipal(image: image) {
+            FondImageFloue(image: image) {
                 ScrollView {
                     VStack(spacing: 16) {
                         if avecFavoris {

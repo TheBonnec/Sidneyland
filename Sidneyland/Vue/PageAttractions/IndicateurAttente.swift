@@ -83,7 +83,7 @@ struct IndicateurAttente: View {
 
 
 #Preview {
-    FondPrincipal {
+    FondImageFloue {
         VStack {
             IndicateurAttente( tempsAttente: 15, fonctionnement: .enMarche)
             IndicateurAttente( tempsAttente: 30, fonctionnement: .enMarche)

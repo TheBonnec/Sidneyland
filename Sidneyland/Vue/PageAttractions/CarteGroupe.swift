@@ -11,6 +11,8 @@ struct CarteGroupe: View {
     
     // MARK: Attributs
     
+    @Environment(\.pageDetailSectionAvecFavoris) var avecFavoris
+    
     var namespace: Namespace.ID
     var titre: String
     var image: String
@@ -24,6 +26,7 @@ struct CarteGroupe: View {
         NavigationLink {
             PageDetailSection(namespace: namespace, titre: titre, attractions: attractions)
                 .imagePageDetailSection(image)
+                .pageDetailSectionAvecFavoris(avecFavoris)
         } label: {
             illustration
         }
@@ -78,7 +81,7 @@ struct CarteGroupe: View {
     }
     
     
-    return FondPrincipal {
+    return FondImageFloue {
         CarteGroupe(namespace: namespace, titre: "Frontierland", image: "BTM", attractions: attractions)
     }
 }

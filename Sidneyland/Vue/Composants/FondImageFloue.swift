@@ -1,5 +1,5 @@
 //
-//  FondPrincipal.swift
+//  FondImageFloue.swift
 //  Sidneyland
 //
 //  Created by Thomas Le Bonnec on 29/09/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FondPrincipal<Contenu: View>: View {
+struct FondImageFloue<Contenu: View>: View {
     
     // MARK: Attributs
     
@@ -67,7 +67,7 @@ struct FondPrincipal<Contenu: View>: View {
 
 
 #Preview {
-    FondPrincipal(image: "Chateau") {
+    FondImageFloue(image: "Chateau") {
         Text("Bonjour")
             .font(.titreSection)
             .foregroundStyle(Color.white)

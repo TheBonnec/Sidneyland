@@ -86,7 +86,7 @@ struct RangAttraction2: View {
         fonctionnement: .enMarche
     ))
     
-    return FondPrincipal {
+    return FondImageFloue {
         RangAttraction2(namespace: animationRangAttraction, attraction: attraction)
     }
 }
