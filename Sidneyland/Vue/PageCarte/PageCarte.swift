@@ -11,6 +11,8 @@ struct PageCarte: View {
     
     // MARK: Attributs
     
+    @Environment(\.changerOnglet) var changerOnglet
+    
     @EnvironmentObject var sélectionOnglet: SelectionOnglet
     @EnvironmentObject var appVM: AppVM
     
@@ -30,110 +32,118 @@ struct PageCarte: View {
     // MARK: Vue
     
     var body: some View {
-        ZStack {
-            Color(hex: "#E3EFC7")
-                .ignoresSafeArea()
-            
-            
-            GeometryReader { géometrie in
-                Image("Carte Parc")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .scaleEffect(agrandissement)
-                    .offset(décalage)
-                    .overlay {
-                        TissuCarte(largeurImage: largeurImage, hauteurImage: hauteurImage, décalage: $décalage, agrandissement: $agrandissement)
-                    }
-                    .gesture(
-                        DragGesture()
-                            .onChanged { valeur in
-                                décalage = CGSize(
-                                    width: dernierDécalage.width + valeur.translation.width,
-                                    height: dernierDécalage.height + valeur.translation.height
-                                )
-                            }
-                            .onEnded { valeur in
-                                withAnimation() {
-                                    décalage = calculerDécalageLimité(
-                                        tentativeDécalage: décalage,
-                                        tailleÉcran: géometrie.size
+        NavigationStack {
+            ZStack {
+                Color(hex: "#E3EFC7")
+                    .ignoresSafeArea()
+                
+                
+                GeometryReader { géometrie in
+                    Image("Carte Parc")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .scaleEffect(agrandissement)
+                        .offset(décalage)
+                        .overlay {
+                            TissuCarte(largeurImage: largeurImage, hauteurImage: hauteurImage, décalage: $décalage, agrandissement: $agrandissement)
+                        }
+                        .gesture(
+                            DragGesture()
+                                .onChanged { valeur in
+                                    décalage = CGSize(
+                                        width: dernierDécalage.width + valeur.translation.width,
+                                        height: dernierDécalage.height + valeur.translation.height
                                     )
-                                    dernierDécalage = décalage
                                 }
-                            }
-                    )
-                    .gesture(
-                        MagnifyGesture()
-                            .onChanged { valeur in
-                                agrandissement = dernierAgrandissement * valeur.magnification
-                                
-                                décalage = calculerDécalagePourAgrandissement(
-                                    tailleÉcran: géometrie.size,
-                                    pointToucher: valeur.startLocation,
-                                    agrandissement: valeur.magnification,
-                                    décalage: dernierDécalage
-                                )
-                            }
-                            .onEnded { valeur in
-                                withAnimation() {
-                                    let agrandissementAdapté = calculerAgrandissementLimité(
-                                        tentativeAgrandissement: agrandissement
-                                    )
-                                    
-                                    if agrandissement != agrandissementAdapté {
-                                        // Ajustement du décalage par rapport à la limitation de l'agrandissement
-                                        décalage = calculerDécalagePourAgrandissement(
-                                            tailleÉcran: géometrie.size,
-                                            pointToucher: valeur.startLocation,
-                                            agrandissement: agrandissementAdapté / agrandissement,
-                                            décalage: décalage
+                                .onEnded { valeur in
+                                    withAnimation() {
+                                        décalage = calculerDécalageLimité(
+                                            tentativeDécalage: décalage,
+                                            tailleÉcran: géometrie.size
                                         )
+                                        dernierDécalage = décalage
                                     }
-                                    
-                                    agrandissement = agrandissementAdapté
-                                    dernierAgrandissement = agrandissement
-                                    
-                                    // Ajustement délage en cas de dépassement
-                                    décalage = calculerDécalageLimité(
-                                        tentativeDécalage: décalage,
-                                        tailleÉcran: géometrie.size
-                                    )
-                                    dernierDécalage = décalage
-                                    
-                                    centreAgrandissement = nil
                                 }
-                            }
-                    )
+                        )
+                        .gesture(
+                            MagnifyGesture()
+                                .onChanged { valeur in
+                                    agrandissement = dernierAgrandissement * valeur.magnification
+                                    
+                                    décalage = calculerDécalagePourAgrandissement(
+                                        tailleÉcran: géometrie.size,
+                                        pointToucher: valeur.startLocation,
+                                        agrandissement: valeur.magnification,
+                                        décalage: dernierDécalage
+                                    )
+                                }
+                                .onEnded { valeur in
+                                    withAnimation() {
+                                        let agrandissementAdapté = calculerAgrandissementLimité(
+                                            tentativeAgrandissement: agrandissement
+                                        )
+                                        
+                                        if agrandissement != agrandissementAdapté {
+                                            // Ajustement du décalage par rapport à la limitation de l'agrandissement
+                                            décalage = calculerDécalagePourAgrandissement(
+                                                tailleÉcran: géometrie.size,
+                                                pointToucher: valeur.startLocation,
+                                                agrandissement: agrandissementAdapté / agrandissement,
+                                                décalage: décalage
+                                            )
+                                        }
+                                        
+                                        agrandissement = agrandissementAdapté
+                                        dernierAgrandissement = agrandissement
+                                        
+                                        // Ajustement délage en cas de dépassement
+                                        décalage = calculerDécalageLimité(
+                                            tentativeDécalage: décalage,
+                                            tailleÉcran: géometrie.size
+                                        )
+                                        dernierDécalage = décalage
+                                        
+                                        centreAgrandissement = nil
+                                    }
+                                }
+                        )
+                }
+                .ignoresSafeArea()
+                
+                
+                vueBoutons
             }
-            
-            
-            boutonRaffraichir
         }
     }
     
     
-    var boutonRaffraichir: some View {
-        HStack {
-            Spacer()
-            
-            VStack {
-                Button {
-                    appVM.raffraichirDonnéesAttractions()
-                } label: {
-                    Image(systemName: "arrow.clockwise")
-                        .font(.information)
-                        .foregroundColor(.purple)
-                        .padding(12)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.1), radius: 8)
+    var vueBoutons: some View {
+        Color.clear
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        appVM.raffraichirDonnéesAttractions()
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                    }
                 }
-                .padding()
                 
-                Spacer()
+                ToolbarSpacer(.flexible, placement: .bottomBar)
+                
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        changerOnglet(.pagePrincipale)
+                    } label: {
+                        HStack {
+                            Image(systemName: "rectangle.fill.on.rectangle.angled.fill")
+                            
+                            Text("Attractions")
+                                .font(.description)
+                        }
+                    }
+                }
             }
-        }
     }
     
     
