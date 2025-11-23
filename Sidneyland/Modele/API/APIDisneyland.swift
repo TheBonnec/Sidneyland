@@ -74,7 +74,9 @@ class APIDisneyland {
         
         let json = try await requêteHTTP(url: url, méthode: .post, élémentsEntête: [], corps: corps)
         
-        return parserInformationsAttractionsJSON(json: json) ?? [[:]]
+        let retour = parserInformationsAttractionsJSON(json: json) ?? [[:]]
+        print(retour)
+        return retour
     }
     
     

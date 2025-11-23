@@ -36,14 +36,16 @@ struct ContentView: View {
         Group {
             if onglet == .pagePrincipale {
                 PageAttractions()
-                    .transition(.slide)
+                    .transition(.move(edge: .leading))
             } else if onglet == .carte {
                 PageCarte()
-                    .transition(.slide)
+                    .transition(.move(edge: .trailing))
             }
         }
         .actionChangerOnglet { onglet in
-            self.onglet = onglet
+            withAnimation(.smooth(duration: 0.3)) {
+                self.onglet = onglet
+            }
         }
         
         

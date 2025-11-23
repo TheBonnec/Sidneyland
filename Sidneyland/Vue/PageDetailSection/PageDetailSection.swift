@@ -88,7 +88,7 @@ struct PageDetailSection: View {
     
     
     var listeFavoris: some View {
-        SectionAttractions(namespace: namespace, attractions: attractions.filter{ $0.estFavorite })
+        SectionAttractions(namespace: namespace, attractions: attractions.filter { $0.estFavorite })
             .afficherTitreSectionAttractions(false)
     }
     

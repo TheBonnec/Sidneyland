@@ -59,6 +59,14 @@ class GestionnaireAttractions {
                     if fonctionnementBrut == "REFURBISHMENT" {
                         fonctionnement = .enTravaux
                     }
+                    if fonctionnementBrut == "OPERATING" {
+                        fonctionnement = .enMarche
+                    }
+                }
+                if let fermé = horaires[0]["closed"] as? Int {
+                    if fermé == 0 {
+                        fonctionnement = .enMarche
+                    }
                 }
                 
                 let horaireOuvertueTxt = horaires[0]["startTime"] as? String ?? ""
@@ -80,7 +88,7 @@ class GestionnaireAttractions {
                 }
             }
             
-            if let fonctionnementBrut = état["status"] as? String, fonctionnement != .enTravaux {
+            if let fonctionnementBrut = état["status"] as? String, fonctionnement != .enTravaux, fonctionnement != .enMarche {
                 // Indique l'état de fonctionnement de l'attraction
                 switch fonctionnementBrut {
                 case "OPERATING": fonctionnement = .enMarche

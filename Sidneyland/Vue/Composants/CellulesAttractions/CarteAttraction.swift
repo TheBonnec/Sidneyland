@@ -15,6 +15,8 @@ struct CarteAttraction: View {
     var attraction: Attraction
     var largeurLibre: Bool = false
     
+    @State var afficherDétail = false
+    
     // Dimensions
     let écartementIndicateurBord: CGFloat = 8.0
     let décallageFavoris: CGFloat = 4.25
@@ -39,6 +41,14 @@ struct CarteAttraction: View {
         .frame(height: dimensionsImage.height)
         .frame(maxWidth: largeurLibre ? .infinity : dimensionsImage.width)
         .frame(minWidth: dimensionsImage.width)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            afficherDétail = true
+        }
+        .sheet(isPresented: $afficherDétail) {
+            PageDetailAttraction2(namespace: namespace, attraction: attraction)
+                .presentationDragIndicator(.visible)
+        }
     }
     
     
@@ -109,8 +119,8 @@ struct CarteAttraction: View {
     attraction.estFavorite = true
     
     attraction.modifierInformation(InformationsAttraction(
-        tempsAttente: 15,
-        tempsSingleRider: nil,
+        tempsAttente: 45,
+        tempsSingleRider: 5,
         horaireFermeture: Date(),
         fonctionnement: .enMarche
     ))

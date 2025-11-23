@@ -14,6 +14,8 @@ struct RangAttraction2: View {
     var namespace: Namespace.ID
     var attraction: Attraction
     
+    @State var afficherDétail = false
+    
     
     
     // MARK: Vue
@@ -45,6 +47,14 @@ struct RangAttraction2: View {
             if let informations = attraction.informations {
                 IndicateurAttente(tempsAttente: informations.tempsAttente, fonctionnement: informations.fonctionnement)
             }
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            afficherDétail = true
+        }
+        .sheet(isPresented: $afficherDétail) {
+            PageDetailAttraction2(namespace: namespace, attraction: attraction)
+                .presentationDragIndicator(.visible)
         }
     }
     

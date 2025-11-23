@@ -86,7 +86,8 @@ struct PageAttractions: View {
             CartoucheGlossaire()
                 .padding()
         }
-        .padding(.top, 32)
+        //.padding(.top, 32)
+        .padding(.top, 16)
     }
     
     
@@ -101,7 +102,7 @@ struct PageAttractions: View {
             CarteGroupe(namespace: namespace, titre: "Discoveryland", image: "Space Mountain",
                         attractions: appVM.attractions.filter{$0.univers == .discoveryland})
             
-            CarteGroupe(namespace: namespace, titre: "Fantasyland", image: "Maison Poupees",
+            CarteGroupe(namespace: namespace, titre: "Fantasyland", image: "Les Tasses",
                         attractions: appVM.attractions.filter{$0.univers == .fantasyland})
             
             CarteGroupe(namespace: namespace, titre: "Disney Studio", image: "HTH",

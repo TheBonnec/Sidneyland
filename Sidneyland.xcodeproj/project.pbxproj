@@ -73,6 +73,8 @@
 		3DED225A2E89ECA300659AE1 /* FondImageFloue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DED22592E89ECA300659AE1 /* FondImageFloue.swift */; };
 		3DEF2D7E2E930EA500FB11C8 /* RangAttraction2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF2D7D2E930EA500FB11C8 /* RangAttraction2.swift */; };
 		3DFC8FF42E959AE20085C621 /* SectionCompteARebours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFC8FF32E959AE20085C621 /* SectionCompteARebours.swift */; };
+		3DFD5E7F2ED244A500EEB301 /* CaseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD5E7E2ED244A500EEB301 /* CaseInformation.swift */; };
+		3DFD5E852ED262AA00EEB301 /* CouleurAttente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD5E842ED262AA00EEB301 /* CouleurAttente.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 		3DED22592E89ECA300659AE1 /* FondImageFloue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FondImageFloue.swift; sourceTree = "<group>"; };
 		3DEF2D7D2E930EA500FB11C8 /* RangAttraction2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangAttraction2.swift; sourceTree = "<group>"; };
 		3DFC8FF32E959AE20085C621 /* SectionCompteARebours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCompteARebours.swift; sourceTree = "<group>"; };
+		3DFD5E7E2ED244A500EEB301 /* CaseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseInformation.swift; sourceTree = "<group>"; };
+		3DFD5E842ED262AA00EEB301 /* CouleurAttente.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouleurAttente.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -386,6 +390,7 @@
 				3D6AEB902E8B4F1E004D864C /* VariableBlur.swift */,
 				3D9336512E8C4F7F00E914DF /* TransparentBlurView.swift */,
 				3D6AEB8E2E8B3D1E004D864C /* View+Extensions.swift */,
+				3DFD5E842ED262AA00EEB301 /* CouleurAttente.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -459,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				3D9336552E8C793400E914DF /* PageDetailAttraction2.swift */,
+				3DFD5E7E2ED244A500EEB301 /* CaseInformation.swift */,
 				3D9336572E8C7CA400E914DF /* FeuilleDetailAttraction.swift */,
 				3DEB25F22CEE9F3700639F80 /* PageDetailAttraction.swift */,
 				3DEB25FE2CEEBB5D00639F80 /* BarreInformationsAttraction.swift */,
@@ -667,6 +673,7 @@
 				3D6AEB872E8AEB05004D864C /* PageAttractions.swift in Sources */,
 				3D15E7F62E9440A800616BAC /* CarteGroupe.swift in Sources */,
 				3D8BE1B82CECD55A00F88A2D /* DegradeHaut.swift in Sources */,
+				3DFD5E7F2ED244A500EEB301 /* CaseInformation.swift in Sources */,
 				3D15E8092E94767300616BAC /* ModificateursPageDetailSection.swift in Sources */,
 				3D36100F2CE9282000FA9B9B /* InformationsAttraction.swift in Sources */,
 				3D8BE1B22CECCFED00F88A2D /* PatronPagePrincipale.swift in Sources */,
@@ -674,6 +681,7 @@
 				3D8BE1C22CEE265D00F88A2D /* SqueletteRangAttraction.swift in Sources */,
 				3DFC8FF42E959AE20085C621 /* SectionCompteARebours.swift in Sources */,
 				3DED225A2E89ECA300659AE1 /* FondImageFloue.swift in Sources */,
+				3DFD5E852ED262AA00EEB301 /* CouleurAttente.swift in Sources */,
 				3DB753492CE8E40300F68412 /* SidneylandApp.swift in Sources */,
 				3D3610142CE9368600FA9B9B /* EnumsAPI.swift in Sources */,
 			);

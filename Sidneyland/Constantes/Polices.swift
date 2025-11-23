@@ -53,6 +53,10 @@ extension Font {
         .custom(Polices.MontserratMedium, size: 13)
     }
     
+    static var noteImportante: Font {
+        .custom(Polices.MontserratSemiBold, size: 11)
+    }
+    
     static var note: Font {
         .custom(Polices.MontserratMedium, size: 11)
     }

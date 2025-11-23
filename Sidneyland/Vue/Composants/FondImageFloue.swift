@@ -58,7 +58,7 @@ struct FondImageFloue<Contenu: View>: View {
         if modeLumière == .dark {
             return .black.opacity(0.7)
         }
-        return .black.opacity(0.76)
+        return .black.opacity(0.7)
     }
 }
 
