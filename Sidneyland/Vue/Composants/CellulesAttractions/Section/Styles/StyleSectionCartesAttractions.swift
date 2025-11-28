@@ -38,14 +38,14 @@ struct StyleSectionCartesAttractions: StyleSectionAttractions {
         
         var body: some View {
             VStack(spacing: 16 + 4.25) { // largeur qui dépasse du coeur
-                /*if let titre = configuration.titre, let symbole = configuration.symbole, afficherTitre {
+                if let titre = configuration.titre, let symbole = configuration.symbole, afficherTitre {
                     NavigationLink {
                         PageDetailSection(namespace: configuration.namespace, titre: titre, attractions: configuration.attractions)
                             .pageDetailSectionAvecFavoris(avecFavoris)
                     } label: {
                         TitreSectionAttractions(symbole: symbole, titre: titre, conteneuriser: conteneuriser)
                     }
-                }*/
+                }
                 
                 vueCartes
                     .styleConteneurisé(conteneuriser)

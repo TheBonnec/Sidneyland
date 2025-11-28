@@ -28,3 +28,11 @@ extension Array: @retroactive RawRepresentable where Element: Codable {
         return result
     }
 }
+
+
+
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}

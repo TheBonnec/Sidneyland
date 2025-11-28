@@ -9,7 +9,7 @@ import Foundation
 
 
 extension Date {
-    func enHoraire() -> String {
+    func convertirEnHeure() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH'h'mm" // Format : "HH'h'mm"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // Locale pour éviter les interprétations inattendues

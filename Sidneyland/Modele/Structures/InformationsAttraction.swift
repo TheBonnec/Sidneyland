@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct InformationsAttraction {
+struct EtatAttraction {
     let tempsAttente: Int
     let tempsSingleRider: Int?
     let horaireFermeture: Date?

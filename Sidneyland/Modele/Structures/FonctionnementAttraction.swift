@@ -11,6 +11,7 @@ import Foundation
 enum FonctionnementAttraction {
     case enMarche, enPanne, fermée, enTravaux, inconnu
     
+    
     var image: String {
         switch self {
         case .enMarche: return "checkmark"

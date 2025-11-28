@@ -15,7 +15,6 @@ extension EnvironmentValues {
 
 extension View {
     func pageDetailSectionAvecFavoris(_ valeur: Bool) -> some View {
-        print("avec favoris : \(valeur)")
         return self
             .environment(\.pageDetailSectionAvecFavoris, valeur)
     }

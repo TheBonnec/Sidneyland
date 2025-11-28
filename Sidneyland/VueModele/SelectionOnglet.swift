@@ -7,14 +7,27 @@
 
 import SwiftUI
 
-class SelectionOnglet: ObservableObject {
-    @Published var sélection: Int = 0
-}
-
-
-
 enum Onglet {
     case pagePrincipale, carte
+    
+    // Les valeurs sont inversés car se sont celles à afficher pour indiquer la direction
+    var titre: String {
+        switch self {
+        case .pagePrincipale:
+            return "Carte"
+        case .carte:
+            return "Attractions"
+        }
+    }
+    
+    var icone: String {
+        switch self {
+        case .pagePrincipale:
+            return "map.fill"
+        case .carte:
+            return "rectangle.fill.on.rectangle.angled.fill"
+        }
+    }
 }
 
 

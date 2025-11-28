@@ -60,6 +60,7 @@ struct PageDetailSection: View {
                     .padding(.top, 16)
                     .padding(.bottom, 8)
                 }
+                .scrollIndicators(.hidden)
             }
             .navigationTitle(titre)
             .toolbar {
@@ -96,7 +97,7 @@ struct PageDetailSection: View {
     var listeAttractions: some View {
         LazyVStack(spacing: 16) {
             ForEach(attractions, id: \.id) { attraction in
-                RangAttraction2(namespace: namespace, attraction: attraction)
+                RangAttraction(namespace: namespace, attraction: attraction)
             }
         }
         .padding()
@@ -110,14 +111,15 @@ struct PageDetailSection: View {
 #Preview {
     @Previewable @Namespace var namespace
     
-    let attractions = RegistreAttractions.attractions().filter { $0.estFavorite == true }
+    var attractions = RegistreAttractions.attractions().filter { $0.estFavorite == true }
     for i in 0...attractions.count - 1 {
-        attractions[i].modifierInformation(InformationsAttraction(
+        attractions[i].état = EtatAttraction(
             tempsAttente: 5 * (i + 1),
             tempsSingleRider: nil,
+            horaireOuverture: Date(),
             horaireFermeture: Date(),
             fonctionnement: i == 2 ? .fermée : .enMarche
-        ))
+        )
     }
     
     return PageDetailSection(namespace: namespace, titre: "Favoris", attractions: attractions)

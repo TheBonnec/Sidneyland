@@ -13,14 +13,15 @@ struct PageCarte: View {
     
     @Environment(\.changerOnglet) var changerOnglet
     
-    @EnvironmentObject var sélectionOnglet: SelectionOnglet
-    @EnvironmentObject var appVM: AppVM
+    @EnvironmentObject var gestionnaire: GestionnaireAttractions
     
     @State var décalage = CGSize.zero
     @State var dernierDécalage = CGSize.zero
     @State var agrandissement: CGFloat = 1
     @State var dernierAgrandissement: CGFloat = 1
     @State var centreAgrandissement: CGPoint?
+    
+    @AppStorage("carteAvecFavorisUniquement") var favorisUniquement: Bool = false
     
     let largeurImage: Double = 7680
     let hauteurImage: Double = 8192
@@ -34,7 +35,7 @@ struct PageCarte: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(hex: "#E3EFC7")
+                Color.fondCarte
                     .ignoresSafeArea()
                 
                 
@@ -46,7 +47,7 @@ struct PageCarte: View {
                         .scaleEffect(agrandissement)
                         .offset(décalage)
                         .overlay {
-                            TissuCarte(largeurImage: largeurImage, hauteurImage: hauteurImage, décalage: $décalage, agrandissement: $agrandissement)
+                            TissuCarte(largeurImage: largeurImage, hauteurImage: hauteurImage, décalage: $décalage, agrandissement: $agrandissement, favorisUniquement: $favorisUniquement)
                         }
                         .gesture(
                             DragGesture()
@@ -123,9 +124,16 @@ struct PageCarte: View {
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        appVM.raffraichirDonnéesAttractions()
+                        gestionnaire.raffraichirDonnéesAttractions()
                     } label: {
                         Image(systemName: "arrow.clockwise")
+                    }
+                }
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        favorisUniquement.toggle()
+                    } label: {
+                        Image(systemName: favorisUniquement ? "heart.fill" : "heart")
                     }
                 }
                 
@@ -205,6 +213,6 @@ struct PageCarte: View {
 
 #Preview {
     PageCarte()
-        .environmentObject(AppVM())
+        .environmentObject(GestionnaireAttractions())
 }
 

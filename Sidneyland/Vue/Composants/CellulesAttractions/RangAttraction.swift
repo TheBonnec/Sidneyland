@@ -1,0 +1,101 @@
+//
+//  RangAttraction.swift
+//  Sidneyland
+//
+//  Created by Thomas Le Bonnec on 05/10/2025.
+//
+
+import SwiftUI
+
+struct RangAttraction: View {
+    
+    // MARK: Attributs
+    
+    var namespace: Namespace.ID
+    var attraction: Attraction
+    
+    @Environment(\.ouvrirDétailAttraction) var ouvrirDétailAttraction
+    
+    
+    
+    // MARK: Vue
+    
+    var body: some View {
+        HStack(spacing: 16) {
+            vueImage
+            
+            
+            HStack(spacing: 12) {
+                Text(attraction.nomCourt ?? attraction.nom)
+                    .font(.corpsImportant)
+                    //.frame(width: 100)
+                    .lineLimit(2)
+                    .truncationMode(.tail)
+                    .allowsTightening(true)
+                
+                if attraction.estFavorite {
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 15)
+                }
+            }
+            .foregroundStyle(Color.white)
+            
+            Spacer()
+            
+            if let informations = attraction.état {
+                IndicateurAttente(tempsAttente: informations.tempsAttente, fonctionnement: informations.fonctionnement)
+            } else {
+                IndicateurAttente(tempsAttente: 0, fonctionnement: .inconnu)
+            }
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            ouvrirDétailAttraction(attraction)
+        }
+    }
+    
+    
+    var vueImage: some View {
+        Color.clear
+            .overlay {
+                Image("\(attraction.image) Petit")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    //.frame(width: 60, height: 60)
+            }
+            .bordureArrondie(rayon: 16)
+            .frame(width: 64, height: 64)
+    }
+}
+
+
+
+
+
+#Preview {
+    @Previewable @Namespace var animationRangAttraction
+    
+    let attraction = Attraction(
+        id: "P0AA00",
+        nom: "Big Thunder Mountain",
+        image: "BTM",
+        parc: .disneyland,
+        univers: .frontierland
+    )
+    
+    attraction.estFavorite = true
+    
+    attraction.état = EtatAttraction(
+        tempsAttente: 15,
+        tempsSingleRider: nil,
+        horaireOuverture: Date(),
+        horaireFermeture: Date(),
+        fonctionnement: .enMarche
+    )
+    
+    return FondImageFloue {
+        RangAttraction(namespace: animationRangAttraction, attraction: attraction)
+    }
+}

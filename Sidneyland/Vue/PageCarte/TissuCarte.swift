@@ -16,15 +16,15 @@ struct TissuCarte: View {
     @State var dimensionsÉcran: CGRect = .zero
     @Binding var décalage: CGSize
     @Binding var agrandissement: CGFloat
+    @Binding var favorisUniquement: Bool
     
-    @EnvironmentObject var appVM: AppVM
+    @EnvironmentObject var gestionnaire: GestionnaireAttractions
     
     @State var ratioLargeur: Double
     @State var ratioHauteur: Double
     @State var facteur: Double
     
     @State var importanceAcceptée: Int = 1
-    @State var attractions: [Attraction] = []
     
     let points = [UnitPoint(x: -0.13671875, y: -0.0927734375), UnitPoint(x: -0.0125, y: -0.04833984375)]
     
@@ -32,7 +32,7 @@ struct TissuCarte: View {
     
     // MARK: Init
     
-    init(largeurImage: Double, hauteurImage: Double, décalage: Binding<CGSize>, agrandissement: Binding<CGFloat>) {
+    init(largeurImage: Double, hauteurImage: Double, décalage: Binding<CGSize>, agrandissement: Binding<CGFloat>, favorisUniquement: Binding<Bool>) {
         self.largeurImage = largeurImage
         self.hauteurImage = hauteurImage
         self._décalage = décalage
@@ -40,6 +40,7 @@ struct TissuCarte: View {
         self.ratioHauteur = 0
         self.ratioLargeur = 0
         self.facteur = 0
+        self._favorisUniquement = favorisUniquement
     }
     
     
@@ -48,33 +49,8 @@ struct TissuCarte: View {
     
     var body: some View {
         Color.clear
-        //.frame(width: largeurImage, height: hauteurImage)
             .overlay {
-                ZStack {
-                    ForEach(attractions, id: \.id) { attraction in
-                        if let informations = attraction.informations {
-                            Group {
-                                if !appVM.chargement {
-                                    IndicateurAttente(tempsAttente: informations.tempsAttente, fonctionnement: informations.fonctionnement)
-                                        .overlay {
-                                            if attraction.estFavorite {
-                                                RoundedRectangle(cornerRadius: 8)
-                                                    .stroke(Color.purple, lineWidth: 4)
-                                            }
-                                        }
-                                } else {
-                                    Rectangle()
-                                        .frame(width: 50, height: 60)
-                                        .foregroundStyle(Color.gray)
-                                }
-                            }
-                            .background(Color.white)
-                            .bordureArrondie(rayon: 8)
-                            .offset(interpolerPoint(point: attraction.positionCarte ?? UnitPoint.zero))
-                            .scaleEffect(1 / agrandissement)
-                        }
-                    }
-                }
+                coucheIndicateursAttente
             }
             .scaleEffect(agrandissement)
             .offset(décalage)
@@ -91,14 +67,34 @@ struct TissuCarte: View {
                         }
                 }
             )
-            .onChange(of: agrandissement) { avant, après in
+            .onChange(of: agrandissement) {
                 calculerImportanceAcceptée()
-                obtenirAttractions()
             }
             .onAppear {
                 calculerImportanceAcceptée()
-                obtenirAttractions()
             }
+    }
+    
+    
+    var coucheIndicateursAttente: some View {
+        ZStack {
+            ForEach(gestionnaire.attractions, id: \.id) { attraction in
+                if let importance = attraction.importance, importance <= importanceAcceptée, (favorisUniquement && attraction.estFavorite) || !favorisUniquement {
+                    Group {
+                        if !gestionnaire.chargement {
+                            BulleTempsAttente(attraction: attraction)
+                        } else {
+                            Rectangle()
+                                .frame(width: 44, height: 44)
+                                .foregroundStyle(Color.gray)
+                                .bordureArrondie(rayon: 1000, épaisseur: 2, couleur: .white.opacity(0.5))
+                        }
+                    }
+                    .offset(interpolerPoint(point: attraction.positionCarte ?? UnitPoint.zero))
+                    .scaleEffect(1 / agrandissement)
+                }
+            }
+        }
     }
     
     
@@ -142,16 +138,6 @@ struct TissuCarte: View {
             importanceAcceptée = 4
         }
     }
-    
-    
-    func obtenirAttractions() {
-        attractions.removeAll()
-        for attraction in appVM.attractions {
-            if attraction.positionCarte != nil, attraction.importance ?? 5 <= importanceAcceptée {
-                attractions.append(attraction)
-            }
-        }
-    }
 }
 
 
@@ -159,6 +145,6 @@ struct TissuCarte: View {
 
 
 #Preview {
-    TissuCarte(largeurImage: 7680, hauteurImage: 8192, décalage: .constant(.zero), agrandissement: .constant(1))
-        .environmentObject(AppVM())
+    TissuCarte(largeurImage: 7680, hauteurImage: 8192, décalage: .constant(.zero), agrandissement: .constant(1), favorisUniquement: .constant(false))
+        .environmentObject(GestionnaireAttractions())
 }

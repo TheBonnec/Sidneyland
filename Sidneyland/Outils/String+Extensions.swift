@@ -9,7 +9,7 @@ import Foundation
 
 
 extension String {
-    func convertirTexteEnDate() -> Date? {
+    func convertirEnDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss" // Format correspondant à l'entrée
         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // Assure une interprétation cohérente

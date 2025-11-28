@@ -15,7 +15,7 @@ struct CarteAttraction: View {
     var attraction: Attraction
     var largeurLibre: Bool = false
     
-    @State var afficherDétail = false
+    @Environment(\.ouvrirDétailAttraction) var ouvrirDétailAttraction
     
     // Dimensions
     let écartementIndicateurBord: CGFloat = 8.0
@@ -43,11 +43,7 @@ struct CarteAttraction: View {
         .frame(minWidth: dimensionsImage.width)
         .contentShape(Rectangle())
         .onTapGesture {
-            afficherDétail = true
-        }
-        .sheet(isPresented: $afficherDétail) {
-            PageDetailAttraction2(namespace: namespace, attraction: attraction)
-                .presentationDragIndicator(.visible)
+            ouvrirDétailAttraction(attraction)
         }
     }
     
@@ -96,7 +92,11 @@ struct CarteAttraction: View {
                 .frame(maxWidth: .infinity)
                 .truncationMode(.tail)
             
-            IndicateurAttente(tempsAttente: attraction.informations?.tempsAttente ?? 0, fonctionnement: attraction.informations?.fonctionnement ?? .inconnu)
+            if let informations = attraction.état {
+                IndicateurAttente(tempsAttente: informations.tempsAttente, fonctionnement: informations.fonctionnement)
+            } else {
+                IndicateurAttente(tempsAttente: 0, fonctionnement: .inconnu)
+            }
         }
     }
 }
@@ -118,12 +118,13 @@ struct CarteAttraction: View {
     
     attraction.estFavorite = true
     
-    attraction.modifierInformation(InformationsAttraction(
+    attraction.état = EtatAttraction(
         tempsAttente: 45,
         tempsSingleRider: 5,
+        horaireOuverture: Date(),
         horaireFermeture: Date(),
         fonctionnement: .enMarche
-    ))
+    )
     
     return FondImageFloue {
         CarteAttraction(namespace: animationRangAttraction, attraction: attraction)

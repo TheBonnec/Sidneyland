@@ -12,13 +12,10 @@ struct ContentView: View {
     // MARK: Attributs
     
     @Namespace private var animationRangAttraction
-    
-    @EnvironmentObject var tailleÉcran: TailleEcran
-    @EnvironmentObject var appVM: AppVM
-    @EnvironmentObject var détailAttractionVM: DetailAttractionVM
-    @EnvironmentObject var sélectionOnglet: SelectionOnglet
+    @EnvironmentObject var gestionnaire: GestionnaireAttractions
     
     @State var onglet: Onglet = .pagePrincipale
+    @State var détailAttraction: Attraction? = nil
     
     
     
@@ -42,92 +39,17 @@ struct ContentView: View {
                     .transition(.move(edge: .trailing))
             }
         }
+        .sheet(item: $détailAttraction) { attraction in
+            PageDetailAttraction(namespace: animationRangAttraction, attraction: attraction)
+                .presentationDragIndicator(.visible)
+        }
         .actionChangerOnglet { onglet in
             withAnimation(.smooth(duration: 0.3)) {
                 self.onglet = onglet
             }
         }
-        
-        
-        /*
-        GeometryReader { géometrie in
-            ZStack {
-                vueOnglets
-                
-                if détailAttractionVM.détailEstAffiché {
-                    vueDétails
-                }
-            }
-            
-            .onAppear {
-                self.tailleÉcran.configurerTaille(taille: géometrie.frame(in: .global), safeArea: géometrie.safeAreaInsets)
-            }
-            .onChange(of: géometrie.frame(in: .global)) { avant, après in
-                // Si l'écran est tourné (iOS), ou que la fenêtre est redimensionnée (macOS)
-                self.tailleÉcran.configurerTaille(taille: après, safeArea: géometrie.safeAreaInsets)
-            }
-        }*/
-    }
-    
-    
-    
-    var vueOnglets: some View {
-        TabView(selection: $sélectionOnglet.sélection) {
-            LazyView(PagePrincipale(namespace: animationRangAttraction, favorisUniquement: false))
-                .tabItem {
-                    Label("Attractions", systemImage: "mountain.2.fill")
-                }
-                .tag(0)
-            
-            LazyView(PagePrincipale(namespace: animationRangAttraction, favorisUniquement: true))
-                .tabItem {
-                    Label("Favoris", systemImage: "heart.fill")
-                }
-                .tag(1)
-            
-            LazyView(PageCarte())
-                .tabItem {
-                    Label("Carte", systemImage: "map")
-                }
-                .tag(2)
-        }
-    }
-    
-    
-    var vueDétails: some View {
-        Group {
-            if let attraction = détailAttractionVM.attractionSélectionnée {
-                Color.clear
-                    .overlay {
-                        PageDetailAttraction(namespace: animationRangAttraction, attraction: attraction)
-                    }
-                    .ignoresSafeArea()
-                    .zIndex(3)
-                    .transition(.modale)
-            } else {
-                vueErreur
-            }
-        }
-    }
-    
-    
-    var vueErreur: some View {
-        Button {
-            détailAttractionVM.fermerDétail()
-        } label: {
-            VStack(alignment: .center, spacing: 16) {
-                Image(systemName: "questionmark")
-                    .font(.sousTitre)
-                    .foregroundStyle(Color.gray)
-                
-                Text("Une erreur est survenue\nAppuyez pour revenir")
-                    .font(.corps)
-                    .padding()
-                    .foregroundStyle(Color.white)
-                    .background(Color.purple)
-                    .bordureArrondie(rayon: 8)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .actionOuvrirDétailAttraction { attraction in
+            self.détailAttraction = attraction
         }
     }
 }
@@ -147,8 +69,5 @@ extension AnyTransition {
 
 #Preview {
     ContentView()
-        .environmentObject(TailleEcran())
-        .environmentObject(AppVM())
-        .environmentObject(DetailAttractionVM())
-        .environmentObject(SelectionOnglet())
+        .environmentObject(GestionnaireAttractions())
 }

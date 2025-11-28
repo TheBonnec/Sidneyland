@@ -56,12 +56,13 @@ extension SectionAttractions where Style == StyleSectionCartesAttractions {
     let attractions = RegistreAttractions.attractions().filter { $0.univers == .frontierland }
     
     for i in 0...attractions.count - 1 {
-        attractions[i].modifierInformation(InformationsAttraction(
+        attractions[i].état = EtatAttraction(
             tempsAttente: 5 * (i + 1),
             tempsSingleRider: nil,
+            horaireOuverture: Date(),
             horaireFermeture: Date(),
             fonctionnement: i == 2 ? .fermée : .enMarche
-        ))
+        )
     }
     
     return FondImageFloue(image: "Chateau") {

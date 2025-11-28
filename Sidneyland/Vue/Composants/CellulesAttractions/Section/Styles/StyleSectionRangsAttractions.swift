@@ -56,7 +56,7 @@ struct StyleSectionRangsAttractions: StyleSectionAttractions {
             ScrollView(.horizontal) {
                 LazyHGrid(rows: Array(rangs[0..<(nbRangs * 3)]), alignment: .center, spacing: 16) {
                     ForEach(configuration.attractions, id: \.id) { attraction in
-                        RangAttraction2(namespace: configuration.namespace, attraction: attraction)
+                        RangAttraction(namespace: configuration.namespace, attraction: attraction)
                     }
                     .padding(.horizontal, 16)
                     .containerRelativeFrame(.horizontal, count: 1, spacing: 0, alignment: .center)
@@ -72,7 +72,7 @@ struct StyleSectionRangsAttractions: StyleSectionAttractions {
         var vueMonopage: some View {
             LazyVStack(spacing: 16) {
                 ForEach(configuration.attractions, id: \.id) { attraction in
-                    RangAttraction2(namespace: configuration.namespace, attraction: attraction)
+                    RangAttraction(namespace: configuration.namespace, attraction: attraction)
                 }
             }
         }

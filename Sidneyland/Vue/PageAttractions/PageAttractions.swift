@@ -13,7 +13,7 @@ struct PageAttractions: View {
     
     @Namespace var namespace: Namespace.ID
     @Environment(\.changerOnglet) var changerOnglet
-    @EnvironmentObject var appVM: AppVM
+    @EnvironmentObject var gestionnaire: GestionnaireAttractions
     
     
     
@@ -49,14 +49,14 @@ struct PageAttractions: View {
             }
             .navigationTitle("Disneyland")
             .toolbar {
-                ToolbarSpacer(.flexible, placement: .bottomBar)
+                ToolbarSpacer(placement: .bottomBar)
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         changerOnglet(.carte)
                     } label: {
                         HStack {
-                            Image(systemName: "map")
+                            Image(systemName: "map.fill")
                             Text("Carte")
                                 .font(.corps)
                         }
@@ -73,10 +73,10 @@ struct PageAttractions: View {
             SectionCompteARebours()
                 .padding(.horizontal, 8)
             
-            SectionAttractions(namespace: namespace, symbole: "map.fill", titre: "Autour de moi", attractions: appVM.attractions.filter{$0.univers == .adventureland})
+            SectionAttractions(namespace: namespace, symbole: "map.fill", titre: "Autour de moi", attractions: gestionnaire.attractions.filter{$0.univers == .adventureland})
                 .conteneuriserSectionAttractions(true)
             
-            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Favoris", attractions: appVM.attractions.filter{$0.estFavorite == true})
+            SectionAttractions(namespace: namespace, symbole: "heart.fill", titre: "Favoris", attractions: gestionnaire.attractions.filter{$0.estFavorite == true})
                 .style(.rangs)
                 .nbRangsSectionAttractions(2)
                 .pageDetailSectionAvecFavoris(false)    // Celui-ci semble n'avoir aucun effet
@@ -94,22 +94,22 @@ struct PageAttractions: View {
     var cartesGroupes: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], alignment: .center, spacing: 16) {
             CarteGroupe(namespace: namespace, titre: "Frontierland", image: "BTM",
-                        attractions: appVM.attractions.filter{$0.univers == .frontierland})
+                        attractions: gestionnaire.attractions.filter{$0.univers == .frontierland})
             
             CarteGroupe(namespace: namespace, titre: "Adventureland", image: "Cabane Robinson",
-                        attractions: appVM.attractions.filter{$0.univers == .adventureland})
+                        attractions: gestionnaire.attractions.filter{$0.univers == .adventureland})
             
             CarteGroupe(namespace: namespace, titre: "Discoveryland", image: "Space Mountain",
-                        attractions: appVM.attractions.filter{$0.univers == .discoveryland})
+                        attractions: gestionnaire.attractions.filter{$0.univers == .discoveryland})
             
             CarteGroupe(namespace: namespace, titre: "Fantasyland", image: "Les Tasses",
-                        attractions: appVM.attractions.filter{$0.univers == .fantasyland})
+                        attractions: gestionnaire.attractions.filter{$0.univers == .fantasyland})
             
             CarteGroupe(namespace: namespace, titre: "Disney Studio", image: "HTH",
-                        attractions: appVM.attractions.filter{$0.parc == .studio})
+                        attractions: gestionnaire.attractions.filter{$0.parc == .studio})
             
             CarteGroupe(namespace: namespace, titre: "Toutes les attractions", image: "Chateau",
-                        attractions: appVM.attractions)
+                        attractions: gestionnaire.attractions)
             .pageDetailSectionAvecFavoris(false)
         }
         .padding()
@@ -121,7 +121,7 @@ struct PageAttractions: View {
 
 
 #Preview {
-    @Previewable @StateObject var appVM: AppVM = .init()
+    @Previewable @StateObject var appVM: GestionnaireAttractions = .init()
     
     PageAttractions()
         .environmentObject(appVM)
